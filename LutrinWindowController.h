@@ -18,6 +18,9 @@
     NSString *imageUTType;
 }
 
+@property (assign) IKImageView *imageView;
+@property (retain) NSDictionary *imageProperties;
+@property (copy) NSString *imageUTType;
 
 - (IBAction)openFile: (id)sender;
 - (void)openImageURL: (NSURL*)url;

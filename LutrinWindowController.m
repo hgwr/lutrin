@@ -19,6 +19,11 @@
 @implementation LutrinWindowController
 
 
+@synthesize imageView;
+@synthesize imageProperties;
+@synthesize imageUTType;
+
+
 - (id)initWithWindow:(NSWindow *)window
 {
     self = [super initWithWindow:window];
@@ -27,6 +32,15 @@
     }
     
     return self;
+}
+
+
+- (void)dealloc
+{
+    [imageProperties release];
+    [imageUTType release];
+    
+    [super dealloc];
 }
 
 
@@ -62,8 +76,9 @@
                                         forKey:(id)kCGImageSourceShouldCache];
         image = CGImageSourceCreateImageAtIndex(isr, 0, (CFDictionaryRef)options);
         if (image) {
-            imageProperties = (NSDictionary *)CFBridgingRelease(CGImageSourceCopyPropertiesAtIndex(isr, 0, (CFDictionaryRef)imageProperties));
-            imageUTType = (NSString *)CGImageSourceGetType(isr);
+            self.imageProperties = (NSDictionary *)CGImageSourceCopyPropertiesAtIndex(isr, 0, (CFDictionaryRef)imageProperties);
+            self.imageUTType = (NSString *)CGImageSourceGetType(isr);
+            NSLog(@"imageUTType = %@", imageUTType);
         }
         CFRelease(isr);
     }
