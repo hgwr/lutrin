@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		173C200A1682668E00D0A92E /* LutrinWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 173C20081682668E00D0A92E /* LutrinWindowController.m */; };
+		173C200C1682679B00D0A92E /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B97324FDCFA39411CA2CEA /* AppKit.framework */; };
 		17FCF4C516825A5C00873D37 /* LutrinTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FCF4C416825A5C00873D37 /* LutrinTests.m */; };
 		17FCF51516825F3D00873D37 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17FCF51416825F3D00873D37 /* Quartz.framework */; };
 		17FCF51716825F3D00873D37 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17FCF51616825F3D00873D37 /* QuartzCore.framework */; };
@@ -21,6 +23,8 @@
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		173C20071682668E00D0A92E /* LutrinWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LutrinWindowController.h; sourceTree = "<group>"; };
+		173C20081682668E00D0A92E /* LutrinWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LutrinWindowController.m; sourceTree = "<group>"; };
 		17FCF4AF1682598200873D37 /* LutrinTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LutrinTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		17FCF4B01682598200873D37 /* LutrinTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LutrinTests-Info.plist"; sourceTree = "<group>"; };
 		17FCF4C316825A5C00873D37 /* LutrinTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LutrinTests.h; sourceTree = "<group>"; };
@@ -50,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				173C200C1682679B00D0A92E /* AppKit.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				17FCF51516825F3D00873D37 /* Quartz.framework in Frameworks */,
 				17FCF51716825F3D00873D37 /* QuartzCore.framework in Frameworks */,
@@ -64,6 +69,8 @@
 			children = (
 				256AC3D80F4B6AC300CF3369 /* lutrinAppDelegate.h */,
 				256AC3D90F4B6AC300CF3369 /* lutrinAppDelegate.m */,
+				173C20071682668E00D0A92E /* LutrinWindowController.h */,
+				173C20081682668E00D0A92E /* LutrinWindowController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -72,6 +79,9 @@
 			isa = PBXGroup;
 			children = (
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
+				17FCF51416825F3D00873D37 /* Quartz.framework */,
+				17FCF51616825F3D00873D37 /* QuartzCore.framework */,
 			);
 			name = "Linked Frameworks";
 			sourceTree = "<group>";
@@ -79,11 +89,8 @@
 		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
 				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
 				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
-				17FCF51416825F3D00873D37 /* Quartz.framework */,
-				17FCF51616825F3D00873D37 /* QuartzCore.framework */,
 			);
 			name = "Other Frameworks";
 			sourceTree = "<group>";
@@ -262,6 +269,7 @@
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				256AC3DA0F4B6AC300CF3369 /* lutrinAppDelegate.m in Sources */,
+				173C200A1682668E00D0A92E /* LutrinWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
