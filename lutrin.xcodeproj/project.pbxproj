@@ -209,6 +209,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "Developer ID Application: Shigeru Hagiwara";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -218,7 +219,10 @@
 				GCC_PREFIX_HEADER = lutrin_Prefix.pch;
 				INFOPLIST_FILE = "lutrin-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = lutrin;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = "";
 			};
 			name = Debug;
 		};
@@ -226,13 +230,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "Developer ID Application: Shigeru Hagiwara";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = lutrin_Prefix.pch;
 				INFOPLIST_FILE = "lutrin-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = lutrin;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = "";
 			};
 			name = Release;
 		};
