@@ -14,6 +14,12 @@
 @interface LutrinWindowController : NSWindowController
 {
     IBOutlet IKImageView *imageView;
+    NSDictionary *imageProperties;
+    NSString *imageUTType;
 }
+
+
+- (IBAction)openFile: (id)sender;
+- (void)openImageURL: (NSURL*)url;
 
 @end
