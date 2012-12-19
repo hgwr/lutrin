@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		17FCF4C516825A5C00873D37 /* LutrinTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FCF4C416825A5C00873D37 /* LutrinTests.m */; };
+		17FCF51516825F3D00873D37 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17FCF51416825F3D00873D37 /* Quartz.framework */; };
+		17FCF51716825F3D00873D37 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17FCF51616825F3D00873D37 /* QuartzCore.framework */; };
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		256AC3DA0F4B6AC300CF3369 /* lutrinAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* lutrinAppDelegate.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
@@ -23,6 +25,8 @@
 		17FCF4B01682598200873D37 /* LutrinTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LutrinTests-Info.plist"; sourceTree = "<group>"; };
 		17FCF4C316825A5C00873D37 /* LutrinTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LutrinTests.h; sourceTree = "<group>"; };
 		17FCF4C416825A5C00873D37 /* LutrinTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LutrinTests.m; sourceTree = "<group>"; };
+		17FCF51416825F3D00873D37 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = /System/Library/Frameworks/Quartz.framework; sourceTree = "<absolute>"; };
+		17FCF51616825F3D00873D37 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = /System/Library/Frameworks/QuartzCore.framework; sourceTree = "<absolute>"; };
 		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		256AC3D80F4B6AC300CF3369 /* lutrinAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lutrinAppDelegate.h; sourceTree = "<group>"; };
 		256AC3D90F4B6AC300CF3369 /* lutrinAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = lutrinAppDelegate.m; sourceTree = "<group>"; };
@@ -47,6 +51,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+				17FCF51516825F3D00873D37 /* Quartz.framework in Frameworks */,
+				17FCF51716825F3D00873D37 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +82,8 @@
 				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
 				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
 				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
+				17FCF51416825F3D00873D37 /* Quartz.framework */,
+				17FCF51616825F3D00873D37 /* QuartzCore.framework */,
 			);
 			name = "Other Frameworks";
 			sourceTree = "<group>";
