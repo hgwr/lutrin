@@ -101,10 +101,10 @@
 		29B97314FDCFA39411CA2CEA /* lutrin */ = {
 			isa = PBXGroup;
 			children = (
-				17FCF4C216825A3600873D37 /* LutrinTests */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
+				17FCF4C216825A3600873D37 /* LutrinTests */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				17FCF4B01682598200873D37 /* LutrinTests-Info.plist */,
@@ -302,6 +302,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = LutrinTests;
+				SDKROOT = "";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
@@ -328,6 +329,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = LutrinTests;
+				SDKROOT = "";
 				WRAPPER_EXTENSION = octest;
 				ZERO_LINK = NO;
 			};
