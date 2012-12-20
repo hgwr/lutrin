@@ -14,6 +14,7 @@
 @interface LutrinWindowController (Utils)
 
 - (void)updateFileListAt:(NSURL *)directory;
+- (NSUInteger)getFileIndex;
 
 @end
 
@@ -66,8 +67,6 @@
                 // TODO open zip or rar file
                 NSLog(@"TODO: open zip/rar file");
             } else {
-                self.currentFile = url;
-                NSLog(@"currentFile = %@", url);
                 [self openImageURL:url];
                 [self updateFileListAt:[url URLByDeletingLastPathComponent]];
             }
@@ -78,8 +77,9 @@
 
 - (void)openImageURL:(NSURL*)url
 {
-    // use ImageIO to get the CGImage, image properties, and the image-UTType
-    //
+    self.currentFile = url;
+    NSLog(@"currentFile = %@", url);
+
     CGImageRef image = NULL;
     CGImageSourceRef isr = CGImageSourceCreateWithURL((CFURLRef)url, NULL);
     
@@ -128,6 +128,42 @@
                          return [a.lastPathComponent compare:b.lastPathComponent];
                      }];
     NSLog(@"fileList = %@", self.fileList);
+}
+
+
+- (NSUInteger)getFileIndex
+{
+    NSUInteger index = [self.fileList indexOfObject:self.currentFile];
+    if (index == NSNotFound) {
+        NSLog(@"not found %@ in file list", self.currentFile);
+        index = 0;
+    }
+    return index;
+}
+
+
+- (IBAction)nextFile: (id)sender
+{
+    NSUInteger index = [self getFileIndex];
+    index += 1;
+    if (index >= self.fileList.count)
+        index = 0;
+    NSURL *url = (NSURL *)[self.fileList objectAtIndex:index];
+    if (url)
+        [self openImageURL:url];
+}
+
+
+- (IBAction)prevFile: (id)sender
+{
+    NSUInteger index = [self getFileIndex];
+    if (index == 0)
+        index = self.fileList.count - 1;
+    else
+        index -= 1;
+    NSURL *url = (NSURL *)[self.fileList objectAtIndex:index];
+    if (url)
+        [self openImageURL:url];
 }
 
 
