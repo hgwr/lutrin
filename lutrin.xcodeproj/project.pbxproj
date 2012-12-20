@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		173C200A1682668E00D0A92E /* LutrinWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 173C20081682668E00D0A92E /* LutrinWindowController.m */; };
 		173C200C1682679B00D0A92E /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B97324FDCFA39411CA2CEA /* AppKit.framework */; };
+		17F5923D168295DE00822D34 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F5923B168295DE00822D34 /* RegexKitLite.m */; };
+		17F5924016829E3200822D34 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F5923F16829E3200822D34 /* libicucore.dylib */; };
 		17FCF4C516825A5C00873D37 /* LutrinTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FCF4C416825A5C00873D37 /* LutrinTests.m */; };
 		17FCF51516825F3D00873D37 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17FCF51416825F3D00873D37 /* Quartz.framework */; };
 		17FCF51716825F3D00873D37 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17FCF51616825F3D00873D37 /* QuartzCore.framework */; };
@@ -25,6 +27,9 @@
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		173C20071682668E00D0A92E /* LutrinWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LutrinWindowController.h; sourceTree = "<group>"; };
 		173C20081682668E00D0A92E /* LutrinWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LutrinWindowController.m; sourceTree = "<group>"; };
+		17F5923B168295DE00822D34 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
+		17F5923C168295DE00822D34 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
+		17F5923F16829E3200822D34 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = ../../../../usr/lib/libicucore.dylib; sourceTree = "<group>"; };
 		17FCF4AF1682598200873D37 /* LutrinTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LutrinTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		17FCF4B01682598200873D37 /* LutrinTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LutrinTests-Info.plist"; sourceTree = "<group>"; };
 		17FCF4C316825A5C00873D37 /* LutrinTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LutrinTests.h; sourceTree = "<group>"; };
@@ -54,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17F5924016829E3200822D34 /* libicucore.dylib in Frameworks */,
 				173C200C1682679B00D0A92E /* AppKit.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				17FCF51516825F3D00873D37 /* Quartz.framework in Frameworks */,
@@ -67,6 +73,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				17F5923C168295DE00822D34 /* RegexKitLite.h */,
+				17F5923B168295DE00822D34 /* RegexKitLite.m */,
 				256AC3D80F4B6AC300CF3369 /* lutrinAppDelegate.h */,
 				256AC3D90F4B6AC300CF3369 /* lutrinAppDelegate.m */,
 				173C20071682668E00D0A92E /* LutrinWindowController.h */,
@@ -116,6 +124,7 @@
 		29B97314FDCFA39411CA2CEA /* lutrin */ = {
 			isa = PBXGroup;
 			children = (
+				17F5923F16829E3200822D34 /* libicucore.dylib */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -270,6 +279,7 @@
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				256AC3DA0F4B6AC300CF3369 /* lutrinAppDelegate.m in Sources */,
 				173C200A1682668E00D0A92E /* LutrinWindowController.m in Sources */,
+				17F5923D168295DE00822D34 /* RegexKitLite.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

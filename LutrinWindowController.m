@@ -7,11 +7,13 @@
 //
 
 #import <AppKit/AppKit.h>
+#import "RegexKitLite.h"
 #import "LutrinWindowController.h"
 
 
-@interface LutrinWindowController ()
+@interface LutrinWindowController (Utils)
 
+- (void)updateFileListAt:(NSURL *)directory;
 
 @end
 
@@ -21,7 +23,8 @@
 
 @synthesize imageView;
 @synthesize imageProperties;
-@synthesize imageUTType;
+@synthesize currentFile;
+@synthesize fileList;
 
 
 - (id)initWithWindow:(NSWindow *)window
@@ -38,7 +41,7 @@
 - (void)dealloc
 {
     [imageProperties release];
-    [imageUTType release];
+    [fileList release];
     
     [super dealloc];
 }
@@ -57,13 +60,23 @@
     [openPanel setCanSelectHiddenExtension:YES];
     [openPanel beginSheetModalForWindow:self.window completionHandler:^(NSInteger result) {
         if (result == NSFileHandlingPanelOKButton) {
-            [self openImageURL: [openPanel URL]];
+            NSURL *url = [openPanel URL];
+            NSString *ext = [url.pathExtension uppercaseString];
+            if ([ext isEqualToString:@"ZIP"] || [ext isEqualToString:@"RAR"]) {
+                // TODO open zip or rar file
+                NSLog(@"TODO: open zip/rar file");
+            } else {
+                self.currentFile = url;
+                NSLog(@"currentFile = %@", url);
+                [self openImageURL:url];
+                [self updateFileListAt:[url URLByDeletingLastPathComponent]];
+            }
         }
     }];
 }
 
 
-- (void)openImageURL: (NSURL*)url
+- (void)openImageURL:(NSURL*)url
 {
     // use ImageIO to get the CGImage, image properties, and the image-UTType
     //
@@ -77,8 +90,6 @@
         image = CGImageSourceCreateImageAtIndex(isr, 0, (CFDictionaryRef)options);
         if (image) {
             self.imageProperties = (NSDictionary *)CGImageSourceCopyPropertiesAtIndex(isr, 0, (CFDictionaryRef)imageProperties);
-            self.imageUTType = (NSString *)CGImageSourceGetType(isr);
-            NSLog(@"imageUTType = %@", imageUTType);
         }
         CFRelease(isr);
     }
@@ -89,5 +100,28 @@
         [self.window setTitleWithRepresentedFilename:[url path]];
     }
 }
+
+
+- (void)updateFileListAt:(NSURL *)directory {
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSArray *urls =
+        [fm contentsOfDirectoryAtURL:directory
+          includingPropertiesForKeys:nil
+                             options:NSDirectoryEnumerationSkipsHiddenFiles
+                               error:nil];
+    NSPredicate *predicate =
+    [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
+        return [[[(NSURL *)evaluatedObject pathExtension] uppercaseString]
+                isMatchedByRegex:@"(TIFF|TIF|JPG|JPEG|GIF|PNG)"];
+    }];
+    self.fileList = [[urls filteredArrayUsingPredicate:predicate]
+                     sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+                         NSURL *a = (NSURL *)obj1;
+                         NSURL *b = (NSURL *)obj2;
+                         return [a.lastPathComponent compare:b.lastPathComponent];
+                     }];
+    NSLog(@"fileList = %@", self.fileList);
+}
+
 
 @end

@@ -15,12 +15,15 @@
 {
     IBOutlet IKImageView *imageView;
     NSDictionary *imageProperties;
-    NSString *imageUTType;
+    NSURL *currentFile;
+    NSArray *fileList;
 }
 
 @property (assign) IKImageView *imageView;
 @property (retain) NSDictionary *imageProperties;
-@property (copy) NSString *imageUTType;
+@property (retain) NSURL *currentFile;
+@property (retain) NSArray *fileList;
+
 
 - (IBAction)openFile: (id)sender;
 - (void)openImageURL: (NSURL*)url;
