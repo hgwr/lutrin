@@ -11,7 +11,7 @@
 
 @class IKImageView;
 
-@interface LutrinWindowController : NSWindowController
+@interface LutrinWindowController : NSWindowController <NSWindowDelegate>
 {
     IBOutlet IKImageView *imageView;
     NSDictionary *imageProperties;
@@ -27,5 +27,6 @@
 
 - (IBAction)openFile: (id)sender;
 - (void)openImageURL: (NSURL*)url;
+- (void)windowDidResize:(NSNotification *)notification;
 
 @end

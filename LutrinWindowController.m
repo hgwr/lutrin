@@ -103,6 +103,12 @@
 }
 
 
+- (void)windowDidResize:(NSNotification *)notification
+{
+    [imageView zoomImageToFit:self];
+}
+
+
 - (void)updateFileListAt:(NSURL *)directory {
     NSFileManager *fm = [NSFileManager defaultManager];
     NSArray *urls =
