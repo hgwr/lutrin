@@ -17,13 +17,14 @@
     NSDictionary *imageProperties;
     NSURL *currentFile;
     NSArray *fileList;
+    NSURL *cacheDir;
 }
 
 @property (assign) IKImageView *imageView;
 @property (retain) NSDictionary *imageProperties;
 @property (retain) NSURL *currentFile;
 @property (retain) NSArray *fileList;
-
+@property (retain) NSURL *cacheDir;
 
 - (IBAction)openFile: (id)sender;
 - (IBAction)nextFile: (id)sender;

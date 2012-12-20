@@ -15,6 +15,7 @@
 
 - (void)updateFileListAt:(NSURL *)directory;
 - (NSUInteger)getFileIndex;
+- (void)setupCacheDir;
 
 @end
 
@@ -26,16 +27,25 @@
 @synthesize imageProperties;
 @synthesize currentFile;
 @synthesize fileList;
+@synthesize cacheDir;
 
 
 - (id)initWithWindow:(NSWindow *)window
 {
     self = [super initWithWindow:window];
     if (self) {
-        // Initialization code here.
+        [self setupCacheDir];
     }
     
     return self;
+}
+
+
+- (void)setupCacheDir {
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSString* appBundleID = [[NSBundle mainBundle] bundleIdentifier];
+    NSArray *urls = [fm URLsForDirectory:NSCachesDirectory inDomains:NSUserDomainMask];
+    self.cacheDir = [(NSURL *)[urls lastObject] URLByAppendingPathComponent:appBundleID];
 }
 
 
