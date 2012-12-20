@@ -13,9 +13,11 @@
 
 @interface LutrinWindowController (Utils)
 
-- (void)updateFileListAt:(NSURL *)directory;
+- (void)updateFileListAt:(NSURL *)directory recursively:(BOOL)doRecursively;
 - (NSUInteger)getFileIndex;
 - (void)setupCacheDir;
+- (void)unzipFile:(NSString *)path;
+- (NSMutableArray *)scanURLImages:(NSURL *)directoryToScan;
 
 @end
 
@@ -41,18 +43,12 @@
 }
 
 
-- (void)setupCacheDir {
-    NSFileManager *fm = [NSFileManager defaultManager];
-    NSString* appBundleID = [[NSBundle mainBundle] bundleIdentifier];
-    NSArray *urls = [fm URLsForDirectory:NSCachesDirectory inDomains:NSUserDomainMask];
-    self.cacheDir = [(NSURL *)[urls lastObject] URLByAppendingPathComponent:appBundleID];
-}
-
-
 - (void)dealloc
 {
     [imageProperties release];
+    [currentFile release];
     [fileList release];
+    [cacheDir release];
     
     [super dealloc];
 }
@@ -74,11 +70,15 @@
             NSURL *url = [openPanel URL];
             NSString *ext = [url.pathExtension uppercaseString];
             if ([ext isEqualToString:@"ZIP"] || [ext isEqualToString:@"RAR"]) {
-                // TODO open zip or rar file
-                NSLog(@"TODO: open zip/rar file");
+                [self unzipFile:[url path]];
+                [self updateFileListAt:self.cacheDir recursively:YES];
+                if (self.fileList.count > 0) {
+                    [self openImageURL:(NSURL *)[self.fileList objectAtIndex:0]];
+                }
             } else {
                 [self openImageURL:url];
-                [self updateFileListAt:[url URLByDeletingLastPathComponent]];
+                [self updateFileListAt:[url URLByDeletingLastPathComponent]
+                           recursively:NO];
             }
         }
     }];
@@ -120,25 +120,54 @@
 }
 
 
-- (void)updateFileListAt:(NSURL *)directory {
+- (void)updateFileListAt:(NSURL *)directory recursively:(BOOL)doRecursively
+{
     NSFileManager *fm = [NSFileManager defaultManager];
-    NSArray *urls =
-        [fm contentsOfDirectoryAtURL:directory
-          includingPropertiesForKeys:nil
-                             options:NSDirectoryEnumerationSkipsHiddenFiles
-                               error:nil];
+    NSArray *urls;
+    if (doRecursively) {
+        urls = [self scanURLImages:directory];
+    } else {
+        urls = [fm contentsOfDirectoryAtURL:directory
+                 includingPropertiesForKeys:nil
+                                    options:NSDirectoryEnumerationSkipsHiddenFiles
+                                      error:nil];
+    }
+    
     NSPredicate *predicate =
     [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
         return [[[(NSURL *)evaluatedObject pathExtension] uppercaseString]
                 isMatchedByRegex:@"(TIFF|TIF|JPG|JPEG|GIF|PNG)"];
     }];
+    
     self.fileList = [[urls filteredArrayUsingPredicate:predicate]
                      sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
                          NSURL *a = (NSURL *)obj1;
                          NSURL *b = (NSURL *)obj2;
                          return [a.lastPathComponent compare:b.lastPathComponent];
                      }];
-    NSLog(@"fileList = %@", self.fileList);
+}
+
+
+- (NSMutableArray *)scanURLImages:(NSURL *)directoryToScan
+{
+    NSMutableArray *urls = [NSMutableArray array];
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSDirectoryEnumerator *dirEnumerator =
+        [fm enumeratorAtURL:directoryToScan
+ includingPropertiesForKeys:[NSArray arrayWithObjects:NSURLIsDirectoryKey,nil]
+                    options:NSDirectoryEnumerationSkipsHiddenFiles
+               errorHandler:nil];
+    
+    for (NSURL *theURL in dirEnumerator) {
+        NSNumber *isDirectory;
+        [theURL getResourceValue:&isDirectory forKey:NSURLIsDirectoryKey error:NULL];
+        NSString *ext = [[(NSURL *)theURL pathExtension] uppercaseString];
+        if ([isDirectory boolValue] == NO &&
+            [ext isMatchedByRegex:@"(TIFF|TIF|JPG|JPEG|GIF|PNG)"]) {
+            [urls addObject:theURL];
+        }
+    }
+    return urls;
 }
 
 
@@ -175,6 +204,39 @@
     NSURL *url = (NSURL *)[self.fileList objectAtIndex:index];
     if (url)
         [self openImageURL:url];
+}
+
+
+- (void)setupCacheDir {
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSString* appBundleID = [[NSBundle mainBundle] bundleIdentifier];
+    NSArray *urls = [fm URLsForDirectory:NSCachesDirectory inDomains:NSUserDomainMask];
+    self.cacheDir = [(NSURL *)[urls lastObject] URLByAppendingPathComponent:appBundleID];
+    [fm createDirectoryAtURL:self.cacheDir withIntermediateDirectories:YES
+                  attributes:nil error:nil];
+}
+
+
+- (void)unzipFile:(NSString *)path
+{
+    NSFileManager *fm = [NSFileManager defaultManager];
+    [fm removeItemAtURL:self.cacheDir error:nil];
+    [fm createDirectoryAtURL:self.cacheDir withIntermediateDirectories:YES
+                  attributes:nil error:nil];
+    
+    NSArray *arguments = [NSArray arrayWithObject:path];
+    
+    NSTask *unzipTask = [[NSTask alloc] init];
+    [unzipTask setLaunchPath:@"/usr/bin/unzip"];
+    [unzipTask setCurrentDirectoryPath:[self.cacheDir path]];
+    [unzipTask setArguments:arguments];
+    [unzipTask launch];
+    [unzipTask waitUntilExit];
+    int status = [unzipTask terminationStatus];
+    [unzipTask release];
+    
+    if (status != 0)
+        NSLog(@"unzip %@ failed.", path);
 }
 
 

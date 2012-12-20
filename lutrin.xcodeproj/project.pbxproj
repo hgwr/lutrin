@@ -33,7 +33,6 @@
 		17F5923F16829E3200822D34 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = /usr/lib/libicucore.dylib; sourceTree = "<absolute>"; };
 		17F592451682A46C00822D34 /* ScrollViewWorkaround.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollViewWorkaround.h; sourceTree = "<group>"; };
 		17F592461682A46C00822D34 /* ScrollViewWorkaround.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollViewWorkaround.m; sourceTree = "<group>"; };
-		17F592581682CD6A00822D34 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = /usr/lib/libz.1.2.5.dylib; sourceTree = "<absolute>"; };
 		17FCF4AF1682598200873D37 /* LutrinTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LutrinTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		17FCF4B01682598200873D37 /* LutrinTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LutrinTests-Info.plist"; sourceTree = "<group>"; };
 		17FCF4C316825A5C00873D37 /* LutrinTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LutrinTests.h; sourceTree = "<group>"; };
@@ -92,7 +91,6 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				17F592581682CD6A00822D34 /* libz.1.2.5.dylib */,
 				17F5923F16829E3200822D34 /* libicucore.dylib */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
