@@ -57,9 +57,7 @@
 - (IBAction)openFile:(id)sender
 {
     NSString *extensions =
-        @"tiff/tif/TIFF/TIF/jpg/jpeg/JPG/JPEG"
-        @"/gif/GIF/png/PNG"
-        @"/zip/ZIP/rar/RAR";
+        @"tiff/tif/TIFF/TIF/jpg/jpeg/JPG/JPEG/gif/GIF/png/PNG/zip/ZIP";
     NSArray *types = [extensions pathComponents];
     
     NSOpenPanel *openPanel = [NSOpenPanel openPanel];
@@ -69,7 +67,7 @@
         if (result == NSFileHandlingPanelOKButton) {
             NSURL *url = [openPanel URL];
             NSString *ext = [url.pathExtension uppercaseString];
-            if ([ext isEqualToString:@"ZIP"] || [ext isEqualToString:@"RAR"]) {
+            if ([ext isEqualToString:@"ZIP"]) {
                 [self unzipFile:[url path]];
                 [self updateFileListAt:self.cacheDir recursively:YES];
                 if (self.fileList.count > 0) {
@@ -88,7 +86,6 @@
 - (void)openImageURL:(NSURL*)url
 {
     self.currentFile = url;
-    NSLog(@"currentFile = %@", url);
 
     CGImageRef image = NULL;
     CGImageSourceRef isr = CGImageSourceCreateWithURL((CFURLRef)url, NULL);
