@@ -48,7 +48,7 @@
 {
     NSString *extensions =
         @"tiff/tif/TIFF/TIF/jpg/jpeg/JPG/JPEG"
-        @"/gif/GIF/bmp/BMP/png/PNG"
+        @"/gif/GIF/png/PNG"
         @"/zip/ZIP/rar/RAR";
     NSArray *types = [extensions pathComponents];
     
