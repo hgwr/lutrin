@@ -97,6 +97,7 @@
     if (image) {
         [imageView setImage:image imageProperties:imageProperties];
         CGImageRelease(image);
+        [imageView zoomImageToFit:self];
         [self.window setTitleWithRepresentedFilename:[url path]];
     }
 }
