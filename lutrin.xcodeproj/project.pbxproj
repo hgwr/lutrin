@@ -11,6 +11,7 @@
 		173C200C1682679B00D0A92E /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B97324FDCFA39411CA2CEA /* AppKit.framework */; };
 		17F5923D168295DE00822D34 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F5923B168295DE00822D34 /* RegexKitLite.m */; };
 		17F5924016829E3200822D34 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F5923F16829E3200822D34 /* libicucore.dylib */; };
+		17F592471682A46C00822D34 /* ScrollViewWorkaround.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F592461682A46C00822D34 /* ScrollViewWorkaround.m */; };
 		17FCF4C516825A5C00873D37 /* LutrinTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FCF4C416825A5C00873D37 /* LutrinTests.m */; };
 		17FCF51516825F3D00873D37 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17FCF51416825F3D00873D37 /* Quartz.framework */; };
 		17FCF51716825F3D00873D37 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17FCF51616825F3D00873D37 /* QuartzCore.framework */; };
@@ -30,6 +31,8 @@
 		17F5923B168295DE00822D34 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
 		17F5923C168295DE00822D34 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
 		17F5923F16829E3200822D34 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = ../../../../usr/lib/libicucore.dylib; sourceTree = "<group>"; };
+		17F592451682A46C00822D34 /* ScrollViewWorkaround.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollViewWorkaround.h; sourceTree = "<group>"; };
+		17F592461682A46C00822D34 /* ScrollViewWorkaround.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollViewWorkaround.m; sourceTree = "<group>"; };
 		17FCF4AF1682598200873D37 /* LutrinTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LutrinTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		17FCF4B01682598200873D37 /* LutrinTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LutrinTests-Info.plist"; sourceTree = "<group>"; };
 		17FCF4C316825A5C00873D37 /* LutrinTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LutrinTests.h; sourceTree = "<group>"; };
@@ -73,6 +76,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				17F592451682A46C00822D34 /* ScrollViewWorkaround.h */,
+				17F592461682A46C00822D34 /* ScrollViewWorkaround.m */,
 				17F5923C168295DE00822D34 /* RegexKitLite.h */,
 				17F5923B168295DE00822D34 /* RegexKitLite.m */,
 				256AC3D80F4B6AC300CF3369 /* lutrinAppDelegate.h */,
@@ -280,6 +285,7 @@
 				256AC3DA0F4B6AC300CF3369 /* lutrinAppDelegate.m in Sources */,
 				173C200A1682668E00D0A92E /* LutrinWindowController.m in Sources */,
 				17F5923D168295DE00822D34 /* RegexKitLite.m in Sources */,
+				17F592471682A46C00822D34 /* ScrollViewWorkaround.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
