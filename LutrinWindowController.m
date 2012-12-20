@@ -95,9 +95,10 @@
     }
     
     if (image) {
+        imageView.autoresizes = YES;
         [imageView setImage:image imageProperties:imageProperties];
+        imageView.autoresizes = NO;
         CGImageRelease(image);
-        [imageView zoomImageToFit:self];
         [self.window setTitleWithRepresentedFilename:[url path]];
     }
 }
