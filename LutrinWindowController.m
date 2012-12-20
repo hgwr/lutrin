@@ -212,8 +212,8 @@
     NSString* appBundleID = [[NSBundle mainBundle] bundleIdentifier];
     NSArray *urls = [fm URLsForDirectory:NSCachesDirectory inDomains:NSUserDomainMask];
     self.cacheDir = [(NSURL *)[urls lastObject] URLByAppendingPathComponent:appBundleID];
-    [fm createDirectoryAtURL:self.cacheDir withIntermediateDirectories:YES
-                  attributes:nil error:nil];
+    [fm createDirectoryAtPath:[self.cacheDir path] withIntermediateDirectories:YES
+				   attributes:nil error:nil];
 }
 
 
@@ -221,8 +221,8 @@
 {
     NSFileManager *fm = [NSFileManager defaultManager];
     [fm removeItemAtURL:self.cacheDir error:nil];
-    [fm createDirectoryAtURL:self.cacheDir withIntermediateDirectories:YES
-                  attributes:nil error:nil];
+    [fm createDirectoryAtPath:[self.cacheDir path] withIntermediateDirectories:YES
+                   attributes:nil error:nil];
     
     NSArray *arguments = [NSArray arrayWithObject:path];
     
