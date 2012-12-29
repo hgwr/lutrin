@@ -65,21 +65,26 @@
     [openPanel setCanSelectHiddenExtension:YES];
     [openPanel beginSheetModalForWindow:self.window completionHandler:^(NSInteger result) {
         if (result == NSFileHandlingPanelOKButton) {
-            NSURL *url = [openPanel URL];
-            NSString *ext = [url.pathExtension uppercaseString];
-            if ([ext isEqualToString:@"ZIP"]) {
-                [self unzipFile:[url path]];
-                [self updateFileListAt:self.cacheDir recursively:YES];
-                if (self.fileList.count > 0) {
-                    [self openImageURL:(NSURL *)[self.fileList objectAtIndex:0]];
-                }
-            } else {
-                [self openImageURL:url];
-                [self updateFileListAt:[url URLByDeletingLastPathComponent]
-                           recursively:NO];
-            }
+            [self openFileImpl:[openPanel URL]];
         }
     }];
+}
+
+
+- (void)openFileImpl:(NSURL *)url
+{
+    NSString *ext = [url.pathExtension uppercaseString];
+    if ([ext isEqualToString:@"ZIP"]) {
+        [self unzipFile:[url path]];
+        [self updateFileListAt:self.cacheDir recursively:YES];
+        if (self.fileList.count > 0) {
+            [self openImageURL:(NSURL *)[self.fileList objectAtIndex:0]];
+        }
+    } else {
+        [self openImageURL:url];
+        [self updateFileListAt:[url URLByDeletingLastPathComponent]
+                   recursively:NO];
+    }
 }
 
 

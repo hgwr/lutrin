@@ -8,10 +8,14 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class LutrinWindowController;
+
 @interface lutrinAppDelegate : NSObject <NSApplicationDelegate> {
     NSWindow *window;
+    IBOutlet LutrinWindowController *windowController;
 }
 
 @property (assign) IBOutlet NSWindow *window;
+@property (assign) IBOutlet LutrinWindowController *windowController;
 
 @end
