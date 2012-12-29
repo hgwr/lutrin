@@ -23,9 +23,11 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFile</key>
-	<string></string>
+	<string>lutrin</string>
 	<key>CFBundleIdentifier</key>
 	<string>jp.moreslowly.${PRODUCT_NAME:rfc1034identifier}</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>Copyright © 2012 moreslowly.jp. All rights reserved.</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
