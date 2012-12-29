@@ -209,6 +209,22 @@
 }
 
 
+- (IBAction)firstFile: (id)sender
+{
+    NSURL *url = (NSURL *)[self.fileList objectAtIndex:0];
+    if (url)
+        [self openImageURL:url];
+}
+
+
+- (IBAction)lastFile: (id)sender
+{
+    NSURL *url = (NSURL *)[self.fileList objectAtIndex:(self.fileList.count - 1)];
+    if (url)
+        [self openImageURL:url];
+}
+
+
 - (void)setupCacheDir {
     NSFileManager *fm = [NSFileManager defaultManager];
     NSString* appBundleID = [[NSBundle mainBundle] bundleIdentifier];

@@ -29,6 +29,8 @@
 - (IBAction)openFile: (id)sender;
 - (IBAction)nextFile: (id)sender;
 - (IBAction)prevFile: (id)sender;
+- (IBAction)firstFile: (id)sender;
+- (IBAction)lastFile: (id)sender;
 - (void)openFileImpl: (NSURL*)url;
 - (void)openImageURL: (NSURL*)url;
 - (void)windowDidResize:(NSNotification *)notification;
