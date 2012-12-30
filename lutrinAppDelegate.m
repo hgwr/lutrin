@@ -8,6 +8,7 @@
 
 #import "lutrinAppDelegate.h"
 #import "LutrinWindowController.h"
+#import "SingleViewController.h"
 
 @implementation lutrinAppDelegate
 
@@ -15,7 +16,7 @@
 
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-	
+	[self.windowController displaySingleViewController];
 }
 
 
@@ -28,7 +29,7 @@
 - (BOOL)application:(NSApplication *)theApplication
            openFile:(NSString *)filename
 {
-    [windowController openFileImpl:[NSURL fileURLWithPath:filename]];
+    [windowController.singleViewController openFileImpl:[NSURL fileURLWithPath:filename]];
     return YES;
 }
 

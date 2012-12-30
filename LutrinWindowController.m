@@ -7,36 +7,27 @@
 //
 
 #import <AppKit/AppKit.h>
-#import "RegexKitLite.h"
 #import "LutrinWindowController.h"
+#import "SingleViewController.h"
 
 
 @interface LutrinWindowController (Utils)
 
-- (void)updateFileListAt:(NSURL *)directory recursively:(BOOL)doRecursively;
-- (NSUInteger)getFileIndex;
-- (void)setupCacheDir;
-- (void)unzipFile:(NSString *)path;
-- (NSMutableArray *)scanURLImages:(NSURL *)directoryToScan;
+- (void)displayViewController:(ManagingViewController *)vc;
 
 @end
 
 
 @implementation LutrinWindowController
 
-
-@synthesize imageView;
-@synthesize imageProperties;
-@synthesize currentFile;
-@synthesize fileList;
-@synthesize cacheDir;
-
+@synthesize box;
+@synthesize singleViewController;
 
 - (id)initWithWindow:(NSWindow *)window
 {
     self = [super initWithWindow:window];
     if (self) {
-        [self setupCacheDir];
+        singleViewController = [[SingleViewController alloc] initWithWindowController:self];
     }
     
     return self;
@@ -45,216 +36,86 @@
 
 - (void)dealloc
 {
-    [imageProperties release];
-    [currentFile release];
-    [fileList release];
-    [cacheDir release];
-    
+    [singleViewController release];
     [super dealloc];
 }
 
 
-- (IBAction)openFile:(id)sender
+- (void)displaySingleViewController
 {
-    NSString *extensions =
-        @"tiff/tif/TIFF/TIF/jpg/jpeg/JPG/JPEG/gif/GIF/png/PNG/zip/ZIP";
-    NSArray *types = [extensions pathComponents];
     
-    NSOpenPanel *openPanel = [NSOpenPanel openPanel];
-    [openPanel setAllowedFileTypes:types];
-    [openPanel setCanSelectHiddenExtension:YES];
-    [openPanel beginSheetModalForWindow:self.window completionHandler:^(NSInteger result) {
-        if (result == NSFileHandlingPanelOKButton) {
-            [self openFileImpl:[openPanel URL]];
-        }
-    }];
+    [self displayViewController:self.singleViewController];
 }
 
 
-- (void)openFileImpl:(NSURL *)url
+- (void)displayViewController:(ManagingViewController *)vc
 {
-    NSString *ext = [url.pathExtension uppercaseString];
-    if ([ext isEqualToString:@"ZIP"]) {
-        [self unzipFile:[url path]];
-        [self updateFileListAt:self.cacheDir recursively:YES];
-        if (self.fileList.count > 0) {
-            [self openImageURL:(NSURL *)[self.fileList objectAtIndex:0]];
-        }
-    } else {
-        [self openImageURL:url];
-        [self updateFileListAt:[url URLByDeletingLastPathComponent]
-                   recursively:NO];
-    }
-}
-
-
-- (void)openImageURL:(NSURL*)url
-{
-    self.currentFile = url;
-
-    CGImageRef image = NULL;
-    CGImageSourceRef isr = CGImageSourceCreateWithURL((CFURLRef)url, NULL);
+    NSLog(@"displayViewController");
+    [self.box setContentView:vc.view];
     
-    if (isr) {
-        NSDictionary *options =
-            [NSDictionary dictionaryWithObject:(id)kCFBooleanTrue
-                                        forKey:(id)kCGImageSourceShouldCache];
-        image = CGImageSourceCreateImageAtIndex(isr, 0, (CFDictionaryRef)options);
-        if (image) {
-            self.imageProperties = (NSDictionary *)CGImageSourceCopyPropertiesAtIndex(isr, 0, (CFDictionaryRef)imageProperties);
-        }
-        CFRelease(isr);
-    }
-    
-    if (image) {
-        imageView.autoresizes = YES;
-        [imageView setImage:image imageProperties:imageProperties];
-        imageView.autoresizes = NO;
-        CGImageRelease(image);
-        [self.window setTitleWithRepresentedFilename:[url path]];
-    }
+    NSRect boxRect = [[self.box contentView] frame];
+    NSLog(@"boxRect = %f, %f, %f, %f", boxRect.origin.x, boxRect.origin.y, boxRect.size.width, boxRect.size.height);
+
+    NSRect vcViewRect = vc.view.frame;
+    NSLog(@"vcViewRect = %f, %f, %f, %f", vcViewRect.origin.x, vcViewRect.origin.y, vcViewRect.size.width, vcViewRect.size.height);
 }
 
 
 - (void)windowDidResize:(NSNotification *)notification
 {
-    [imageView zoomImageToFit:self];
+    [self.singleViewController windowDidResize:notification];
 }
 
 
-- (void)updateFileListAt:(NSURL *)directory recursively:(BOOL)doRecursively
+- (IBAction)openFile:(id)sender
 {
-    NSFileManager *fm = [NSFileManager defaultManager];
-    NSArray *urls;
-    if (doRecursively) {
-        urls = [self scanURLImages:directory];
-    } else {
-        urls = [fm contentsOfDirectoryAtURL:directory
-                 includingPropertiesForKeys:nil
-                                    options:NSDirectoryEnumerationSkipsHiddenFiles
-                                      error:nil];
-    }
-    
-    NSPredicate *predicate =
-    [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
-        return [[[(NSURL *)evaluatedObject pathExtension] uppercaseString]
-                isMatchedByRegex:@"(TIFF|TIF|JPG|JPEG|GIF|PNG)"];
-    }];
-    
-    self.fileList = [[urls filteredArrayUsingPredicate:predicate]
-                     sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-                         NSURL *a = (NSURL *)obj1;
-                         NSURL *b = (NSURL *)obj2;
-                         return [a.lastPathComponent compare:b.lastPathComponent];
-                     }];
-}
-
-
-- (NSMutableArray *)scanURLImages:(NSURL *)directoryToScan
-{
-    NSMutableArray *urls = [NSMutableArray array];
-    NSFileManager *fm = [NSFileManager defaultManager];
-    NSDirectoryEnumerator *dirEnumerator =
-        [fm enumeratorAtURL:directoryToScan
- includingPropertiesForKeys:[NSArray arrayWithObjects:NSURLIsDirectoryKey,nil]
-                    options:NSDirectoryEnumerationSkipsHiddenFiles
-               errorHandler:nil];
-    
-    for (NSURL *theURL in dirEnumerator) {
-        NSNumber *isDirectory;
-        [theURL getResourceValue:&isDirectory forKey:NSURLIsDirectoryKey error:NULL];
-        NSString *ext = [[(NSURL *)theURL pathExtension] uppercaseString];
-        if ([isDirectory boolValue] == NO &&
-            [ext isMatchedByRegex:@"(TIFF|TIF|JPG|JPEG|GIF|PNG)"]) {
-            [urls addObject:theURL];
-        }
-    }
-    return urls;
-}
-
-
-- (NSUInteger)getFileIndex
-{
-    NSUInteger index = [self.fileList indexOfObject:self.currentFile];
-    if (index == NSNotFound) {
-        NSLog(@"not found %@ in file list", self.currentFile);
-        index = 0;
-    }
-    return index;
+    [self.singleViewController openFile:sender];
 }
 
 
 - (IBAction)nextFile: (id)sender
 {
-    NSUInteger index = [self getFileIndex];
-    index += 1;
-    if (index >= self.fileList.count)
-        index = 0;
-    NSURL *url = (NSURL *)[self.fileList objectAtIndex:index];
-    if (url)
-        [self openImageURL:url];
+    [self.singleViewController nextFile:sender];
 }
 
 
 - (IBAction)prevFile: (id)sender
 {
-    NSUInteger index = [self getFileIndex];
-    if (index == 0)
-        index = self.fileList.count - 1;
-    else
-        index -= 1;
-    NSURL *url = (NSURL *)[self.fileList objectAtIndex:index];
-    if (url)
-        [self openImageURL:url];
+    [self.singleViewController prevFile:sender];
 }
 
 
 - (IBAction)firstFile: (id)sender
 {
-    NSURL *url = (NSURL *)[self.fileList objectAtIndex:0];
-    if (url)
-        [self openImageURL:url];
+    [self.singleViewController firstFile:sender];
 }
 
 
 - (IBAction)lastFile: (id)sender
 {
-    NSURL *url = (NSURL *)[self.fileList objectAtIndex:(self.fileList.count - 1)];
-    if (url)
-        [self openImageURL:url];
+    [self.singleViewController lastFile:sender];
 }
 
 
-- (void)setupCacheDir {
-    NSFileManager *fm = [NSFileManager defaultManager];
-    NSString* appBundleID = [[NSBundle mainBundle] bundleIdentifier];
-    NSArray *urls = [fm URLsForDirectory:NSCachesDirectory inDomains:NSUserDomainMask];
-    self.cacheDir = [(NSURL *)[urls lastObject] URLByAppendingPathComponent:appBundleID];
-    [fm createDirectoryAtPath:[self.cacheDir path] withIntermediateDirectories:YES
-				   attributes:nil error:nil];
-}
-
-
-- (void)unzipFile:(NSString *)path
+- (IBAction)zoomActualSize: (id)sender
 {
-    NSFileManager *fm = [NSFileManager defaultManager];
-    [fm removeItemAtURL:self.cacheDir error:nil];
-    [fm createDirectoryAtPath:[self.cacheDir path] withIntermediateDirectories:YES
-                   attributes:nil error:nil];
-    
-    NSArray *arguments = [NSArray arrayWithObject:path];
-    
-    NSTask *unzipTask = [[NSTask alloc] init];
-    [unzipTask setLaunchPath:@"/usr/bin/unzip"];
-    [unzipTask setCurrentDirectoryPath:[self.cacheDir path]];
-    [unzipTask setArguments:arguments];
-    [unzipTask launch];
-    [unzipTask waitUntilExit];
-    int status = [unzipTask terminationStatus];
-    [unzipTask release];
-    
-    if (status != 0)
-        NSLog(@"unzip %@ failed.", path);
+    [self.singleViewController zoomActualSize:sender];
+}
+
+
+- (IBAction)zoomFitToWindow: (id)sender
+{
+    [self.singleViewController zoomFitToWindow:sender];
+}
+
+
+- (IBAction)zoomIn: (id)sender {
+    [self.singleViewController zoomIn:sender];
+}
+
+
+- (IBAction)zoomOut: (id)sender {
+    [self.singleViewController zoomOut:sender];
 }
 
 

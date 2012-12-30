@@ -7,32 +7,29 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import <Quartz/Quartz.h>
 
-@class IKImageView;
+@class SingleViewController;
 
 @interface LutrinWindowController : NSWindowController <NSWindowDelegate>
 {
-    IBOutlet IKImageView *imageView;
-    NSDictionary *imageProperties;
-    NSURL *currentFile;
-    NSArray *fileList;
-    NSURL *cacheDir;
+    IBOutlet NSBox *box;
+    SingleViewController *singleViewController;
 }
 
-@property (assign) IKImageView *imageView;
-@property (retain) NSDictionary *imageProperties;
-@property (retain) NSURL *currentFile;
-@property (retain) NSArray *fileList;
-@property (retain) NSURL *cacheDir;
+@property (assign) NSBox *box;
+@property (retain) SingleViewController *singleViewController;
+
+- (void)displaySingleViewController;
 
 - (IBAction)openFile: (id)sender;
 - (IBAction)nextFile: (id)sender;
 - (IBAction)prevFile: (id)sender;
 - (IBAction)firstFile: (id)sender;
 - (IBAction)lastFile: (id)sender;
-- (void)openFileImpl: (NSURL*)url;
-- (void)openImageURL: (NSURL*)url;
-- (void)windowDidResize:(NSNotification *)notification;
+
+- (IBAction)zoomActualSize: (id)sender;
+- (IBAction)zoomFitToWindow: (id)sender;
+- (IBAction)zoomIn: (id)sender;
+- (IBAction)zoomOut: (id)sender;
 
 @end
