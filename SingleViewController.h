@@ -49,6 +49,9 @@
 - (void)setupCacheDir;
 - (void)unzipFile:(NSString *)path;
 - (NSMutableArray *)scanURLImages:(NSURL *)directoryToScan;
-- (void)loadImageTo:(IKImageView *)_imageView URL:(NSURL *)url;
+- (void)loadImageTo:(IKImageView *)imageView_
+                URL:(NSURL *)url_
+         properties:(NSDictionary **)imageProperties_;
+- (NSURL*)transparentImage;
 
 @end

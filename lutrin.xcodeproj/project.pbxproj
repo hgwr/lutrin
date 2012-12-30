@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		173C200A1682668E00D0A92E /* LutrinWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 173C20081682668E00D0A92E /* LutrinWindowController.m */; };
 		173C200C1682679B00D0A92E /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B97324FDCFA39411CA2CEA /* AppKit.framework */; };
+		17A2B60A16903EA100A420B4 /* transparent1x1.png in Resources */ = {isa = PBXBuildFile; fileRef = 17A2B60916903EA100A420B4 /* transparent1x1.png */; };
 		17B8A287168FF74400100F16 /* DoubleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B8A285168FF74400100F16 /* DoubleViewController.m */; };
 		17B8A288168FF74400100F16 /* DoubleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17B8A286168FF74400100F16 /* DoubleViewController.xib */; };
 		17F5923D168295DE00822D34 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F5923B168295DE00822D34 /* RegexKitLite.m */; };
@@ -35,6 +36,7 @@
 		173C20071682668E00D0A92E /* LutrinWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LutrinWindowController.h; sourceTree = "<group>"; };
 		173C20081682668E00D0A92E /* LutrinWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LutrinWindowController.m; sourceTree = "<group>"; };
 		17A2B60816902D1600A420B4 /* LutrinConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LutrinConstants.h; sourceTree = "<group>"; };
+		17A2B60916903EA100A420B4 /* transparent1x1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = transparent1x1.png; sourceTree = "<group>"; };
 		17B8A284168FF74400100F16 /* DoubleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubleViewController.h; sourceTree = "<group>"; };
 		17B8A285168FF74400100F16 /* DoubleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubleViewController.m; sourceTree = "<group>"; };
 		17B8A286168FF74400100F16 /* DoubleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DoubleViewController.xib; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				17A2B60916903EA100A420B4 /* transparent1x1.png */,
 				17FC3AA8168EE3D8003BE5DA /* Credits.rtf */,
 				17FC3A9E168EE240003BE5DA /* lutrin.icns */,
 				8D1107310486CEB800E47090 /* lutrin-Info.plist */,
@@ -278,6 +281,7 @@
 				17FC3AA9168EE3D8003BE5DA /* Credits.rtf in Resources */,
 				17FC3AB1168FCD4A003BE5DA /* SingleViewController.xib in Resources */,
 				17B8A288168FF74400100F16 /* DoubleViewController.xib in Resources */,
+				17A2B60A16903EA100A420B4 /* transparent1x1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

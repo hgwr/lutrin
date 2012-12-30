@@ -12,11 +12,13 @@
 @interface DoubleViewController : SingleViewController
 {
     IBOutlet IKImageView *rightImageView;
+    NSDictionary *rightImageProperties;
     BOOL leftToRight;
 }
 
 
 @property (assign) IKImageView *rightImageView;
+@property (retain) NSDictionary *rightImageProperties;
 @property (nonatomic,assign) BOOL leftToRight;
 
 

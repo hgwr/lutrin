@@ -17,17 +17,26 @@
 
 
 @synthesize rightImageView;
+@synthesize rightImageProperties;
 @synthesize leftToRight;
 
 
 - (id)initWithWindowController:(NSWindowController *)_windowController
 {
-    self = [super initWithWindowController:_windowController nibName:@"DoubleViewController"];
+    self = [super initWithWindowController:_windowController
+                                   nibName:@"DoubleViewController"];
     if (self) {
         leftToRight = TRUE;
     }
     
     return self;
+}
+
+
+- (void)dealloc
+{
+    [rightImageProperties release];
+    [super dealloc];
 }
 
 
@@ -38,10 +47,46 @@
 }
 
 
+- (NSURL *)nextFileUrl
+{
+    NSUInteger index = [self getFileIndex];
+    index += 1;
+    if (index >= self.fileList.count) {
+        return [self transparentImage];
+    } else {
+        NSURL *url = (NSURL *)[self.fileList objectAtIndex:index];
+        if (url == nil)
+            url = [self transparentImage];
+        return url;
+    }
+}
+
+
 - (void)openImageURL:(NSURL*)url
 {
-    // TODO override
-    [self loadImageTo:self.imageView URL:url];
+    self.currentFile = url;
+    if (leftToRight) {
+        if ([self getFileIndex] == 0) {
+            [self loadImageTo:self.imageView URL:[self transparentImage]
+                   properties:&imageProperties];
+            [self loadImageTo:self.rightImageView URL:url properties:&rightImageProperties];
+        } else {
+            [self loadImageTo:self.imageView URL:url properties:&imageProperties];
+            [self loadImageTo:self.rightImageView URL:[self nextFileUrl]
+                   properties:&rightImageProperties];
+        }
+    } else {
+        if ([self getFileIndex] == 0) {
+            [self loadImageTo:self.imageView URL:url properties:&imageProperties];
+            [self loadImageTo:self.rightImageView URL:[self transparentImage]
+                   properties:&rightImageProperties];
+        } else {
+            [self loadImageTo:self.imageView URL:[self nextFileUrl]
+                   properties:&imageProperties];
+            [self loadImageTo:self.rightImageView URL:url
+                   properties:&rightImageProperties];
+        }
+    }
     [self.windowController.window setTitleWithRepresentedFilename:[url path]];
 }
 

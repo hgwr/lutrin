@@ -93,17 +93,19 @@
 
 - (void)openImageURL:(NSURL*)url
 {
-    [self loadImageTo:self.imageView URL:url];
+    self.currentFile = url;
+    [self loadImageTo:self.imageView URL:url properties:&imageProperties];
     [self.windowController.window setTitleWithRepresentedFilename:[url path]];
 }
 
 
-- (void)loadImageTo:(IKImageView *)_imageView URL:(NSURL *)url
+- (void)loadImageTo:(IKImageView *)imageView_
+                URL:(NSURL *)url_
+         properties:(NSDictionary **)imagePropRef_
 {
-    self.currentFile = url;
     
     CGImageRef image = NULL;
-    CGImageSourceRef isr = CGImageSourceCreateWithURL((CFURLRef)url, NULL);
+    CGImageSourceRef isr = CGImageSourceCreateWithURL((CFURLRef)url_, NULL);
     
     if (isr) {
         NSDictionary *options =
@@ -111,15 +113,15 @@
                                     forKey:(id)kCGImageSourceShouldCache];
         image = CGImageSourceCreateImageAtIndex(isr, 0, (CFDictionaryRef)options);
         if (image) {
-            self.imageProperties = (NSDictionary *)CGImageSourceCopyPropertiesAtIndex(isr, 0, (CFDictionaryRef)imageProperties);
+            *imagePropRef_ = (NSDictionary *)CGImageSourceCopyPropertiesAtIndex(isr, 0, (CFDictionaryRef)(*imagePropRef_));
         }
         CFRelease(isr);
     }
     
     if (image) {
-        _imageView.autoresizes = YES;
-        [_imageView setImage:image imageProperties:imageProperties];
-        _imageView.autoresizes = NO;
+        imageView_.autoresizes = YES;
+        [imageView_ setImage:image imageProperties:*imagePropRef_];
+        imageView_.autoresizes = NO;
         CGImageRelease(image);
     }
 }
@@ -288,6 +290,12 @@ includingPropertiesForKeys:[NSArray arrayWithObjects:NSURLIsDirectoryKey,nil]
     
     if (status != 0)
         NSLog(@"unzip %@ failed.", path);
+}
+
+
+- (NSURL*)transparentImage
+{
+    return [[NSBundle mainBundle] URLForResource:@"transparent1x1" withExtension:@"png"];
 }
 
 @end
