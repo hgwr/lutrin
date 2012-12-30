@@ -70,8 +70,8 @@
 
 - (IBAction)displayDoubleViewLeftToRight:(id)sender
 {
-    [self displayViewController:self.doubleViewController];
     self.doubleViewController.leftToRight = TRUE;
+    [self displayViewController:self.doubleViewController];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:LT_LEFT_TO_RIGHT forKey:LT_VIEW_TYPE];
     self.singleMenuItem.state = NSOffState;
@@ -82,8 +82,8 @@
 
 - (IBAction)displayDoubleViewRightToLeft:(id)sender
 {
-    [self displayViewController:self.doubleViewController];
     self.doubleViewController.leftToRight = FALSE;
+    [self displayViewController:self.doubleViewController];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:LT_RIGHT_TO_LEFT forKey:LT_VIEW_TYPE];
     self.singleMenuItem.state = NSOffState;

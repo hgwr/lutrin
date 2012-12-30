@@ -19,7 +19,7 @@
 
 @property (assign) IKImageView *rightImageView;
 @property (retain) NSDictionary *rightImageProperties;
-@property (nonatomic,assign) BOOL leftToRight;
+@property (assign) BOOL leftToRight;
 
 
 - (id)initWithWindowController:(NSWindowController *)_windowController;
@@ -27,6 +27,8 @@
 - (void)openImageURL: (NSURL*)url;
 - (void)windowDidResize:(NSNotification *)notification;
 
+- (IBAction)nextFile:(id)sender;
+- (IBAction)prevFile:(id)sender;
 - (IBAction)zoomActualSize: (id)sender;
 - (IBAction)zoomFitToWindow: (id)sender;
 - (IBAction)zoomIn: (id)sender;

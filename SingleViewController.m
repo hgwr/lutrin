@@ -59,7 +59,7 @@
 - (IBAction)openFile:(id)sender
 {
     NSString *extensions =
-    @"tiff/tif/TIFF/TIF/jpg/jpeg/JPG/JPEG/gif/GIF/png/PNG/zip/ZIP";
+    @"tiff/tif/TIFF/TIF/bmp/BMP/jpg/jpeg/JPG/JPEG/gif/GIF/png/PNG/zip/ZIP";
     NSArray *types = [extensions pathComponents];
     
     NSOpenPanel *openPanel = [NSOpenPanel openPanel];
@@ -149,7 +149,7 @@
     NSPredicate *predicate =
     [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
         return [[[(NSURL *)evaluatedObject pathExtension] uppercaseString]
-                isMatchedByRegex:@"(TIFF|TIF|JPG|JPEG|GIF|PNG)"];
+                isMatchedByRegex:@"(TIFF|TIF|BMP|JPG|JPEG|GIF|PNG)"];
     }];
     
     self.fileList = [[urls filteredArrayUsingPredicate:predicate]
@@ -176,7 +176,7 @@ includingPropertiesForKeys:[NSArray arrayWithObjects:NSURLIsDirectoryKey,nil]
         [theURL getResourceValue:&isDirectory forKey:NSURLIsDirectoryKey error:NULL];
         NSString *ext = [[(NSURL *)theURL pathExtension] uppercaseString];
         if ([isDirectory boolValue] == NO &&
-            [ext isMatchedByRegex:@"(TIFF|TIF|JPG|JPEG|GIF|PNG)"]) {
+            [ext isMatchedByRegex:@"(TIFF|TIF|BMP|JPG|JPEG|GIF|PNG)"]) {
             [urls addObject:theURL];
         }
     }

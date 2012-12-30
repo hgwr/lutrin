@@ -40,13 +40,6 @@
 }
 
 
-- (void)setLeftToRight:(BOOL)leftToRight_
-{
-    // TODO 右開きか左開きかの変更処理
-    leftToRight = leftToRight_;
-}
-
-
 - (NSURL *)nextFileUrl
 {
     NSUInteger index = [self getFileIndex];
@@ -95,6 +88,31 @@
 {
     [self.imageView zoomImageToFit:self];
     [self.rightImageView zoomImageToFit:self];
+}
+
+
+- (IBAction)nextFile: (id)sender
+{
+    NSUInteger index = [self getFileIndex];
+    index += 2;
+    if (index >= self.fileList.count)
+        index = 0;
+    NSURL *url = (NSURL *)[self.fileList objectAtIndex:index];
+    if (url)
+        [self openImageURL:url];
+}
+
+
+- (IBAction)prevFile: (id)sender
+{
+    NSUInteger index = [self getFileIndex];
+    if (index == 0)
+        index = self.fileList.count - 1;
+    else
+        index -= 2;
+    NSURL *url = (NSURL *)[self.fileList objectAtIndex:index];
+    if (url)
+        [self openImageURL:url];
 }
 
 
