@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		173C200A1682668E00D0A92E /* LutrinWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 173C20081682668E00D0A92E /* LutrinWindowController.m */; };
 		173C200C1682679B00D0A92E /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B97324FDCFA39411CA2CEA /* AppKit.framework */; };
+		17B8A287168FF74400100F16 /* DoubleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B8A285168FF74400100F16 /* DoubleViewController.m */; };
+		17B8A288168FF74400100F16 /* DoubleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17B8A286168FF74400100F16 /* DoubleViewController.xib */; };
 		17F5923D168295DE00822D34 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F5923B168295DE00822D34 /* RegexKitLite.m */; };
 		17F5924016829E3200822D34 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F5923F16829E3200822D34 /* libicucore.dylib */; };
 		17F592471682A46C00822D34 /* ScrollViewWorkaround.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F592461682A46C00822D34 /* ScrollViewWorkaround.m */; };
@@ -33,6 +35,9 @@
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		173C20071682668E00D0A92E /* LutrinWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LutrinWindowController.h; sourceTree = "<group>"; };
 		173C20081682668E00D0A92E /* LutrinWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LutrinWindowController.m; sourceTree = "<group>"; };
+		17B8A284168FF74400100F16 /* DoubleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubleViewController.h; sourceTree = "<group>"; };
+		17B8A285168FF74400100F16 /* DoubleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubleViewController.m; sourceTree = "<group>"; };
+		17B8A286168FF74400100F16 /* DoubleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DoubleViewController.xib; sourceTree = "<group>"; };
 		17F5923B168295DE00822D34 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
 		17F5923C168295DE00822D34 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
 		17F5923F16829E3200822D34 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = /usr/lib/libicucore.dylib; sourceTree = "<absolute>"; };
@@ -100,6 +105,8 @@
 				17FC3AAB168FCCAB003BE5DA /* ManagingViewController.m */,
 				17FC3AAD168FCD4A003BE5DA /* SingleViewController.h */,
 				17FC3AAE168FCD4A003BE5DA /* SingleViewController.m */,
+				17B8A284168FF74400100F16 /* DoubleViewController.h */,
+				17B8A285168FF74400100F16 /* DoubleViewController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -175,6 +182,7 @@
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
 				17FC3AAF168FCD4A003BE5DA /* SingleViewController.xib */,
+				17B8A286168FF74400100F16 /* DoubleViewController.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -272,6 +280,7 @@
 				17FC3A9F168EE240003BE5DA /* lutrin.icns in Resources */,
 				17FC3AA9168EE3D8003BE5DA /* Credits.rtf in Resources */,
 				17FC3AB1168FCD4A003BE5DA /* SingleViewController.xib in Resources */,
+				17B8A288168FF74400100F16 /* DoubleViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +322,7 @@
 				17F592471682A46C00822D34 /* ScrollViewWorkaround.m in Sources */,
 				17FC3AAC168FCCAB003BE5DA /* ManagingViewController.m in Sources */,
 				17FC3AB0168FCD4A003BE5DA /* SingleViewController.m in Sources */,
+				17B8A287168FF74400100F16 /* DoubleViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
