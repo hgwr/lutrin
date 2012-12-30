@@ -127,6 +127,7 @@
     if (image) {
         imageView_.autoresizes = YES;
         [imageView_ setImage:image imageProperties:*imagePropRef_];
+        [imageView_ zoomImageToFit:nil];
         imageView_.autoresizes = NO;
         CGImageRelease(image);
     }
