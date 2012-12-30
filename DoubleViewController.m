@@ -8,8 +8,8 @@
 
 #import "DoubleViewController.h"
 
-@interface DoubleViewController ()
-
+@interface DoubleViewController (Util)
+- (NSString *)makeTitle:(NSURL*)leftUrl right:(NSURL *)rightUrl;
 @end
 
 
@@ -55,6 +55,29 @@
 }
 
 
+- (NSString *)makeTitle:(NSURL*)leftUrl right:(NSURL *)rightUrl
+{
+    NSString *leftName = [leftUrl lastPathComponent];
+    if ([leftUrl isEqual:[self transparentImage]])
+        leftName = @"";
+    NSString *rightName = [rightUrl lastPathComponent];
+    if ([rightUrl isEqual:[self transparentImage]])
+         rightName = @"";
+    NSString *title = [NSString stringWithFormat:@"%@ | %@ (%ld/%ld)",
+                       leftName, rightName,
+                       ([self getFileIndex] + 1), self.fileList.count];
+    return title;
+}
+
+
+- (void)clearImageView
+{
+    [super clearImageView];
+    [self loadImageTo:self.rightImageView URL:[self transparentImage]
+           properties:&rightImageProperties];
+}
+
+
 - (void)openImageURL:(NSURL*)url
 {
     self.currentFile = url;
@@ -66,30 +89,29 @@
         [self.windowController.window setTitle:@"no image"];
         return;
     }
-    
+
+    NSURL *leftUrl = nil;
+    NSURL *rightUrl = nil;
     if (leftToRight) {
         if ([self getFileIndex] == 0) {
-            [self loadImageTo:self.imageView URL:[self transparentImage]
-                   properties:&imageProperties];
-            [self loadImageTo:self.rightImageView URL:url properties:&rightImageProperties];
+            leftUrl = [self transparentImage];
+            rightUrl = url;
         } else {
-            [self loadImageTo:self.imageView URL:url properties:&imageProperties];
-            [self loadImageTo:self.rightImageView URL:[self nextFileUrl]
-                   properties:&rightImageProperties];
+            leftUrl = url;
+            rightUrl = [self nextFileUrl];
         }
     } else {
         if ([self getFileIndex] == 0) {
-            [self loadImageTo:self.imageView URL:url properties:&imageProperties];
-            [self loadImageTo:self.rightImageView URL:[self transparentImage]
-                   properties:&rightImageProperties];
+            leftUrl = url;
+            rightUrl = [self transparentImage];
         } else {
-            [self loadImageTo:self.imageView URL:[self nextFileUrl]
-                   properties:&imageProperties];
-            [self loadImageTo:self.rightImageView URL:url
-                   properties:&rightImageProperties];
+            leftUrl = [self nextFileUrl];
+            rightUrl = url;
         }
     }
-    [self.windowController.window setTitleWithRepresentedFilename:[url path]];
+    [self loadImageTo:self.imageView URL:leftUrl properties:&imageProperties];
+    [self loadImageTo:self.rightImageView URL:rightUrl properties:&rightImageProperties];
+    [self.windowController.window setTitle:[self makeTitle:leftUrl right:rightUrl]];
 }
 
 

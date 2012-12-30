@@ -226,7 +226,7 @@
 							<string key="NSTitle">View</string>
 							<object class="NSMutableArray" key="NSMenuItems">
 								<bool key="EncodedWithXMLCoder">YES</bool>
-								<object class="NSMenuItem" id="895157405">
+								<object class="NSMenuItem" id="358125830">
 									<reference key="NSMenu" ref="466310130"/>
 									<string key="NSTitle">Single</string>
 									<string key="NSKeyEquiv">s</string>
@@ -234,7 +234,7 @@
 									<reference key="NSOnImage" ref="35465992"/>
 									<reference key="NSMixedImage" ref="502551668"/>
 								</object>
-								<object class="NSMenuItem" id="16978882">
+								<object class="NSMenuItem" id="913337317">
 									<reference key="NSMenu" ref="466310130"/>
 									<string key="NSTitle">Left to Right</string>
 									<string key="NSKeyEquiv">l</string>
@@ -242,7 +242,7 @@
 									<reference key="NSOnImage" ref="35465992"/>
 									<reference key="NSMixedImage" ref="502551668"/>
 								</object>
-								<object class="NSMenuItem" id="705063976">
+								<object class="NSMenuItem" id="172693917">
 									<reference key="NSMenu" ref="466310130"/>
 									<string key="NSTitle">Right to Left</string>
 									<string key="NSKeyEquiv">r</string>
@@ -250,7 +250,7 @@
 									<reference key="NSOnImage" ref="35465992"/>
 									<reference key="NSMixedImage" ref="502551668"/>
 								</object>
-								<object class="NSMenuItem" id="863975590">
+								<object class="NSMenuItem" id="372670954">
 									<reference key="NSMenu" ref="466310130"/>
 									<bool key="NSIsDisabled">YES</bool>
 									<bool key="NSIsSeparator">YES</bool>
@@ -446,6 +446,7 @@
 									<string key="NSFrameSize">{806, 606}</string>
 									<reference key="NSSuperview" ref="227337943"/>
 									<reference key="NSWindow"/>
+									<reference key="NSNextKeyView"/>
 									<string key="NSReuseIdentifierKey">_NS:11</string>
 								</object>
 							</object>
@@ -493,6 +494,7 @@
 				<string key="NSScreenRect">{{0, 0}, {1920, 1058}}</string>
 				<string key="NSMinSize">{400, 322}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
+				<string key="NSFrameAutosaveName">lutrin</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
 			</object>
 			<object class="NSCustomObject" id="976324537">
@@ -712,7 +714,7 @@
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">singleMenuItem</string>
 						<reference key="source" ref="870122944"/>
-						<reference key="destination" ref="895157405"/>
+						<reference key="destination" ref="358125830"/>
 					</object>
 					<int key="connectionID">601</int>
 				</object>
@@ -720,7 +722,7 @@
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">rightToLeftMenuItem</string>
 						<reference key="source" ref="870122944"/>
-						<reference key="destination" ref="705063976"/>
+						<reference key="destination" ref="172693917"/>
 					</object>
 					<int key="connectionID">602</int>
 				</object>
@@ -728,7 +730,7 @@
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">leftToRightMenuItem</string>
 						<reference key="source" ref="870122944"/>
-						<reference key="destination" ref="16978882"/>
+						<reference key="destination" ref="913337317"/>
 					</object>
 					<int key="connectionID">603</int>
 				</object>
@@ -736,7 +738,7 @@
 					<object class="IBActionConnection" key="connection">
 						<string key="label">displaySingleViewController:</string>
 						<reference key="source" ref="870122944"/>
-						<reference key="destination" ref="895157405"/>
+						<reference key="destination" ref="358125830"/>
 					</object>
 					<int key="connectionID">604</int>
 				</object>
@@ -744,7 +746,7 @@
 					<object class="IBActionConnection" key="connection">
 						<string key="label">displayDoubleViewRightToLeft:</string>
 						<reference key="source" ref="870122944"/>
-						<reference key="destination" ref="705063976"/>
+						<reference key="destination" ref="172693917"/>
 					</object>
 					<int key="connectionID">605</int>
 				</object>
@@ -752,7 +754,7 @@
 					<object class="IBActionConnection" key="connection">
 						<string key="label">displayDoubleViewLeftToRight:</string>
 						<reference key="source" ref="870122944"/>
-						<reference key="destination" ref="16978882"/>
+						<reference key="destination" ref="913337317"/>
 					</object>
 					<int key="connectionID">606</int>
 				</object>
@@ -984,10 +986,10 @@
 							<reference ref="353176694"/>
 							<reference ref="994181255"/>
 							<reference ref="667615941"/>
-							<reference ref="705063976"/>
-							<reference ref="16978882"/>
-							<reference ref="895157405"/>
-							<reference ref="863975590"/>
+							<reference ref="172693917"/>
+							<reference ref="913337317"/>
+							<reference ref="358125830"/>
+							<reference ref="372670954"/>
 						</object>
 						<reference key="parent" ref="586577488"/>
 					</object>
@@ -1101,22 +1103,22 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">597</int>
-						<reference key="object" ref="705063976"/>
+						<reference key="object" ref="172693917"/>
 						<reference key="parent" ref="466310130"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">598</int>
-						<reference key="object" ref="16978882"/>
+						<reference key="object" ref="913337317"/>
 						<reference key="parent" ref="466310130"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">599</int>
-						<reference key="object" ref="895157405"/>
+						<reference key="object" ref="358125830"/>
 						<reference key="parent" ref="466310130"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">600</int>
-						<reference key="object" ref="863975590"/>
+						<reference key="object" ref="372670954"/>
 						<reference key="parent" ref="466310130"/>
 					</object>
 				</object>

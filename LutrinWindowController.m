@@ -57,6 +57,12 @@
 }
 
 
+- (void)clearImageView
+{
+    [currentViewController clearImageView];
+}
+
+
 - (IBAction)displaySingleViewController:(id)sender
 {
     [self displayViewController:self.singleViewController];

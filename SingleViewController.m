@@ -101,7 +101,10 @@
         return;
     }
     [self loadImageTo:self.imageView URL:url properties:&imageProperties];
-    [self.windowController.window setTitleWithRepresentedFilename:[url path]];
+    NSString *title = [NSString stringWithFormat:@"%@ (%ld/%ld)",
+                       [url lastPathComponent],
+                       ([self getFileIndex] + 1), self.fileList.count];
+    [self.windowController.window setTitle:title];
 }
 
 
@@ -137,6 +140,13 @@
 - (void)windowDidResize:(NSNotification *)notification
 {
     [self.imageView zoomImageToFit:self];
+}
+
+
+- (void)clearImageView
+{
+    [self loadImageTo:self.imageView URL:[self transparentImage]
+           properties:&imageProperties];
 }
 
 

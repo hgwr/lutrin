@@ -32,6 +32,7 @@
 - (void)openFileImpl:(NSURL*)url;
 - (void)openImageURL:(NSURL*)url;
 - (void)windowDidResize:(NSNotification *)notification;
+- (void)clearImageView;
 
 - (IBAction)openFile:(id)sender;
 - (IBAction)nextFile:(id)sender;

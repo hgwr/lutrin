@@ -30,6 +30,7 @@
 @property (retain) DoubleViewController *doubleViewController;
 
 - (void)openFileImpl:(NSURL*)url;
+- (void)clearImageView;
 
 - (IBAction)displaySingleViewController:(id)sender;
 - (IBAction)displayDoubleViewLeftToRight:(id)sender;

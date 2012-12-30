@@ -36,6 +36,7 @@
     } else if ([viewType isEqualToString:LT_RIGHT_TO_LEFT]) {
         [self.windowController displayDoubleViewRightToLeft:nil];
     }
+    [self.windowController clearImageView];
 }
 
 

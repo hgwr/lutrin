@@ -26,6 +26,7 @@
 
 - (void)openImageURL: (NSURL*)url;
 - (void)windowDidResize:(NSNotification *)notification;
+- (void)clearImageView;
 
 - (IBAction)nextFile:(id)sender;
 - (IBAction)prevFile:(id)sender;
