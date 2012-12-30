@@ -15,6 +15,7 @@
 
 @interface LutrinWindowController (Utils)
 
+- (void)setupDefaults;
 - (void)displayViewController:(SingleViewController *)vc;
 - (void)startFullScreen;
 - (void)stopFullScreen;
@@ -30,6 +31,7 @@
 @synthesize rightToLeftMenuItem;
 @synthesize singleViewController;
 @synthesize doubleViewController;
+@synthesize currentViewController;
 @synthesize originalTitle;
 
 
@@ -39,11 +41,45 @@
     if (self) {
         singleViewController = [[SingleViewController alloc] initWithWindowController:self];
         doubleViewController = [[DoubleViewController alloc] initWithWindowController:self];
-        currentViewController = nil;
         isFullScreen = FALSE;
+        
+        [self setupDefaults];
+        NSString *viewType =
+            [[NSUserDefaults standardUserDefaults] stringForKey:LT_VIEW_TYPE];
+        if ([viewType isEqualToString:LT_SINGLE_VIEW]) {
+            currentViewController = singleViewController;
+        } else if ([viewType isEqualToString:LT_LEFT_TO_RIGHT]) {
+            currentViewController = doubleViewController;
+            doubleViewController.leftToRight = TRUE;
+        } else if ([viewType isEqualToString:LT_RIGHT_TO_LEFT]) {
+            currentViewController = doubleViewController;
+            doubleViewController.leftToRight = FALSE;
+        }
+        [self clearImageView];
     }
     
     return self;
+}
+
+
+- (void)setupDefaults {
+    NSMutableDictionary *defaultValues = [NSMutableDictionary dictionary];
+    [defaultValues setObject:LT_SINGLE_VIEW forKey:LT_VIEW_TYPE];
+    [[NSUserDefaults standardUserDefaults] registerDefaults:defaultValues];
+}
+
+
+- (void)setupViewController
+{
+    NSString *viewType =
+        [[NSUserDefaults standardUserDefaults] stringForKey:LT_VIEW_TYPE];
+    if ([viewType isEqualToString:LT_SINGLE_VIEW]) {
+        [self displaySingleViewController:nil];
+    } else if ([viewType isEqualToString:LT_LEFT_TO_RIGHT]) {
+        [self displayDoubleViewLeftToRight:nil];
+    } else if ([viewType isEqualToString:LT_RIGHT_TO_LEFT]) {
+        [self displayDoubleViewRightToLeft:nil];
+    }
 }
 
 
@@ -56,15 +92,15 @@
 }
 
 
-- (void)openFileImpl:(NSURL*)url
+- (void)openFileImpl:(NSURL *)url
 {
-    [currentViewController openFileImpl:url];
+    [self.currentViewController openFileImpl:url];
 }
 
 
 - (void)clearImageView
 {
-    [currentViewController clearImageView];
+    [self.currentViewController clearImageView];
 }
 
 
@@ -112,68 +148,68 @@
 
 - (void)displayViewController:(SingleViewController *)vc
 {
-    NSURL *currentFile = currentViewController.currentFile;
-    currentViewController = vc;
+    NSURL *currentFile = self.currentViewController.currentFile;
+    self.currentViewController = vc;
     [self.box setContentView:vc.view];
-    [currentViewController openFileImpl:currentFile];
+    [self.currentViewController openFileImpl:currentFile];
 }
 
 
 - (void)windowDidResize:(NSNotification *)notification
 {
-    [currentViewController windowDidResize:notification];
+    [self.currentViewController windowDidResize:notification];
 }
 
 
 - (IBAction)openFile:(id)sender
 {
-    [currentViewController openFile:sender];
+    [self.currentViewController openFile:sender];
 }
 
 
 - (IBAction)nextFile: (id)sender
 {
-    [currentViewController nextFile:sender];
+    [self.currentViewController nextFile:sender];
 }
 
 
 - (IBAction)prevFile: (id)sender
 {
-    [currentViewController prevFile:sender];
+    [self.currentViewController prevFile:sender];
 }
 
 
 - (IBAction)firstFile: (id)sender
 {
-    [currentViewController firstFile:sender];
+    [self.currentViewController firstFile:sender];
 }
 
 
 - (IBAction)lastFile: (id)sender
 {
-    [currentViewController lastFile:sender];
+    [self.currentViewController lastFile:sender];
 }
 
 
 - (IBAction)zoomActualSize: (id)sender
 {
-    [currentViewController zoomActualSize:sender];
+    [self.currentViewController zoomActualSize:sender];
 }
 
 
 - (IBAction)zoomFitToWindow: (id)sender
 {
-    [currentViewController zoomFitToWindow:sender];
+    [self.currentViewController zoomFitToWindow:sender];
 }
 
 
 - (IBAction)zoomIn: (id)sender {
-    [currentViewController zoomIn:sender];
+    [self.currentViewController zoomIn:sender];
 }
 
 
 - (IBAction)zoomOut: (id)sender {
-    [currentViewController zoomOut:sender];
+    [self.currentViewController zoomOut:sender];
 }
 
 
@@ -207,7 +243,6 @@
     int windowLevel = CGShieldingWindowLevel();
     NSRect screenRect = [[NSScreen mainScreen] frame];
     
-    NSLog(@"full screen window size ");
     [self.window setStyleMask:NSBorderlessWindowMask];
     [self.window setFrame:screenRect display:YES];
     [self.window setLevel:windowLevel];
@@ -220,7 +255,6 @@
     if (CGDisplayRelease( kCGDirectMainDisplay ) != kCGErrorSuccess) {
         NSLog( @"Couldn't release the display(s)!" );
     }
-    NSLog(@"restore window size ");
     [self.window setStyleMask:originalStyleMask];
     [self.window setLevel:originalWindowLevel];
     [self.window setFrame:originalWindowRect display:YES];

@@ -34,9 +34,11 @@
 @property (assign) NSMenuItem *rightToLeftMenuItem;
 @property (retain) SingleViewController *singleViewController;
 @property (retain) DoubleViewController *doubleViewController;
+@property (assign) SingleViewController *currentViewController;
 @property (copy) NSString *originalTitle;
 
-- (void)openFileImpl:(NSURL*)url;
+- (void)setupViewController;
+- (void)openFileImpl:(NSURL *)url;
 - (void)clearImageView;
 - (void)setWindowTitle:(NSString *)newTitle;
 

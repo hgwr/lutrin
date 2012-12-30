@@ -31,8 +31,8 @@
                        nibName:(NSString *)nibNameOrNil;
 - (id)initWithWindowController:(LutrinWindowController *)_windowController;
 
-- (void)openFileImpl:(NSURL*)url;
-- (void)openImageURL:(NSURL*)url;
+- (void)openFileImpl:(NSURL *)url;
+- (void)openImageURL:(NSURL *)url;
 - (void)windowDidResize:(NSNotification *)notification;
 - (void)clearImageView;
 
@@ -55,6 +55,6 @@
 - (void)loadImageTo:(IKImageView *)imageView_
                 URL:(NSURL *)url_
          properties:(NSDictionary **)imageProperties_;
-- (NSURL*)transparentImage;
+- (NSURL *)transparentImage;
 
 @end

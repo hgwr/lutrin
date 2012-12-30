@@ -12,7 +12,7 @@
 
 @interface DoubleViewController (Util)
 
-- (NSString *)makeTitle:(NSURL*)leftUrl right:(NSURL *)rightUrl;
+- (NSString *)makeTitle:(NSURL *)leftUrl right:(NSURL *)rightUrl;
 
 @end
 
@@ -59,7 +59,7 @@
 }
 
 
-- (NSString *)makeTitle:(NSURL*)leftUrl right:(NSURL *)rightUrl
+- (NSString *)makeTitle:(NSURL *)leftUrl right:(NSURL *)rightUrl
 {
     NSString *leftName = [leftUrl lastPathComponent];
     if ([leftUrl isEqual:[self transparentImage]])
@@ -82,7 +82,7 @@
 }
 
 
-- (void)openImageURL:(NSURL*)url
+- (void)openImageURL:(NSURL *)url
 {
     self.currentFile = url;
     if (url == nil) {

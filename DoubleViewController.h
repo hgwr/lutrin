@@ -24,7 +24,7 @@
 
 - (id)initWithWindowController:(LutrinWindowController *)_windowController;
 
-- (void)openImageURL: (NSURL*)url;
+- (void)openImageURL: (NSURL *)url;
 - (void)windowDidResize:(NSNotification *)notification;
 - (void)clearImageView;
 

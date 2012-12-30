@@ -92,7 +92,7 @@
 }
 
 
-- (void)openImageURL:(NSURL*)url
+- (void)openImageURL:(NSURL *)url
 {
     self.currentFile = url;
     if (url == nil) {
@@ -319,7 +319,7 @@ includingPropertiesForKeys:[NSArray arrayWithObjects:NSURLIsDirectoryKey,nil]
 }
 
 
-- (NSURL*)transparentImage
+- (NSURL *)transparentImage
 {
     return [[NSBundle mainBundle] URLForResource:@"transparent1x1" withExtension:@"png"];
 }
