@@ -14,6 +14,9 @@
 		17F592471682A46C00822D34 /* ScrollViewWorkaround.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F592461682A46C00822D34 /* ScrollViewWorkaround.m */; };
 		17FC3A9F168EE240003BE5DA /* lutrin.icns in Resources */ = {isa = PBXBuildFile; fileRef = 17FC3A9E168EE240003BE5DA /* lutrin.icns */; };
 		17FC3AA9168EE3D8003BE5DA /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 17FC3AA8168EE3D8003BE5DA /* Credits.rtf */; };
+		17FC3AAC168FCCAB003BE5DA /* ManagingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FC3AAB168FCCAB003BE5DA /* ManagingViewController.m */; };
+		17FC3AB0168FCD4A003BE5DA /* SingleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FC3AAE168FCD4A003BE5DA /* SingleViewController.m */; };
+		17FC3AB1168FCD4A003BE5DA /* SingleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17FC3AAF168FCD4A003BE5DA /* SingleViewController.xib */; };
 		17FCF4C516825A5C00873D37 /* LutrinTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FCF4C416825A5C00873D37 /* LutrinTests.m */; };
 		17FCF51516825F3D00873D37 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17FCF51416825F3D00873D37 /* Quartz.framework */; };
 		17FCF51716825F3D00873D37 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17FCF51616825F3D00873D37 /* QuartzCore.framework */; };
@@ -37,6 +40,11 @@
 		17F592461682A46C00822D34 /* ScrollViewWorkaround.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollViewWorkaround.m; sourceTree = "<group>"; };
 		17FC3A9E168EE240003BE5DA /* lutrin.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = lutrin.icns; sourceTree = "<group>"; };
 		17FC3AA8168EE3D8003BE5DA /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
+		17FC3AAA168FCCAB003BE5DA /* ManagingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagingViewController.h; sourceTree = "<group>"; };
+		17FC3AAB168FCCAB003BE5DA /* ManagingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagingViewController.m; sourceTree = "<group>"; };
+		17FC3AAD168FCD4A003BE5DA /* SingleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleViewController.h; sourceTree = "<group>"; };
+		17FC3AAE168FCD4A003BE5DA /* SingleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleViewController.m; sourceTree = "<group>"; };
+		17FC3AAF168FCD4A003BE5DA /* SingleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleViewController.xib; sourceTree = "<group>"; };
 		17FCF4AF1682598200873D37 /* LutrinTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LutrinTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		17FCF4B01682598200873D37 /* LutrinTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LutrinTests-Info.plist"; sourceTree = "<group>"; };
 		17FCF4C316825A5C00873D37 /* LutrinTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LutrinTests.h; sourceTree = "<group>"; };
@@ -88,6 +96,10 @@
 				256AC3D90F4B6AC300CF3369 /* lutrinAppDelegate.m */,
 				173C20071682668E00D0A92E /* LutrinWindowController.h */,
 				173C20081682668E00D0A92E /* LutrinWindowController.m */,
+				17FC3AAA168FCCAB003BE5DA /* ManagingViewController.h */,
+				17FC3AAB168FCCAB003BE5DA /* ManagingViewController.m */,
+				17FC3AAD168FCD4A003BE5DA /* SingleViewController.h */,
+				17FC3AAE168FCD4A003BE5DA /* SingleViewController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -162,6 +174,7 @@
 				8D1107310486CEB800E47090 /* lutrin-Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
+				17FC3AAF168FCD4A003BE5DA /* SingleViewController.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -258,6 +271,7 @@
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
 				17FC3A9F168EE240003BE5DA /* lutrin.icns in Resources */,
 				17FC3AA9168EE3D8003BE5DA /* Credits.rtf in Resources */,
+				17FC3AB1168FCD4A003BE5DA /* SingleViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +311,8 @@
 				173C200A1682668E00D0A92E /* LutrinWindowController.m in Sources */,
 				17F5923D168295DE00822D34 /* RegexKitLite.m in Sources */,
 				17F592471682A46C00822D34 /* ScrollViewWorkaround.m in Sources */,
+				17FC3AAC168FCCAB003BE5DA /* ManagingViewController.m in Sources */,
+				17FC3AB0168FCD4A003BE5DA /* SingleViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
