@@ -8,6 +8,7 @@
 
 #import "RegexKitLite.h"
 #import "SingleViewController.h"
+#import "LutrinWindowController.h"
 
 @interface SingleViewController (Utils)
 
@@ -25,7 +26,7 @@
 @synthesize cacheDir;
 
 
-- (id)initWithWindowController:(NSWindowController *)_windowController
+- (id)initWithWindowController:(LutrinWindowController *)_windowController
                        nibName:(NSString *)nibNameOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nil];
@@ -38,7 +39,7 @@
 }
 
 
-- (id)initWithWindowController:(NSWindowController *)_windowController
+- (id)initWithWindowController:(LutrinWindowController *)_windowController
 {
     return [self initWithWindowController:_windowController
                                   nibName:@"SingleViewController"];
@@ -97,14 +98,14 @@
     if (url == nil) {
         [self loadImageTo:self.imageView URL:[self transparentImage]
                properties:&imageProperties];
-        [self.windowController.window setTitle:@"no image"];
+        [self.windowController setWindowTitle:@"no image"];
         return;
     }
     [self loadImageTo:self.imageView URL:url properties:&imageProperties];
     NSString *title = [NSString stringWithFormat:@"%@ (%ld/%ld)",
                        [url lastPathComponent],
                        ([self getFileIndex] + 1), self.fileList.count];
-    [self.windowController.window setTitle:title];
+    [self.windowController setWindowTitle:title];
 }
 
 

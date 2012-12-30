@@ -20,6 +20,12 @@
     SingleViewController *singleViewController;
     DoubleViewController *doubleViewController;
     SingleViewController *currentViewController;
+    
+    BOOL isFullScreen;
+    NSRect originalWindowRect;
+    NSUInteger originalStyleMask;
+    NSInteger originalWindowLevel;
+    NSString *originalTitle;
 }
 
 @property (assign) NSBox *box;
@@ -28,9 +34,11 @@
 @property (assign) NSMenuItem *rightToLeftMenuItem;
 @property (retain) SingleViewController *singleViewController;
 @property (retain) DoubleViewController *doubleViewController;
+@property (copy) NSString *originalTitle;
 
 - (void)openFileImpl:(NSURL*)url;
 - (void)clearImageView;
+- (void)setWindowTitle:(NSString *)newTitle;
 
 - (IBAction)displaySingleViewController:(id)sender;
 - (IBAction)displayDoubleViewLeftToRight:(id)sender;
@@ -46,5 +54,7 @@
 - (IBAction)zoomFitToWindow:(id)sender;
 - (IBAction)zoomIn:(id)sender;
 - (IBAction)zoomOut:(id)sender;
+
+- (IBAction)toggleFullScreen:(id)sender;
 
 @end

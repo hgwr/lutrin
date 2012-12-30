@@ -22,7 +22,7 @@
 @property (assign) BOOL leftToRight;
 
 
-- (id)initWithWindowController:(NSWindowController *)_windowController;
+- (id)initWithWindowController:(LutrinWindowController *)_windowController;
 
 - (void)openImageURL: (NSURL*)url;
 - (void)windowDidResize:(NSNotification *)notification;

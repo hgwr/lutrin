@@ -16,6 +16,8 @@
 @interface LutrinWindowController (Utils)
 
 - (void)displayViewController:(SingleViewController *)vc;
+- (void)startFullScreen;
+- (void)stopFullScreen;
 
 @end
 
@@ -28,6 +30,7 @@
 @synthesize rightToLeftMenuItem;
 @synthesize singleViewController;
 @synthesize doubleViewController;
+@synthesize originalTitle;
 
 
 - (id)initWithWindow:(NSWindow *)window
@@ -37,6 +40,7 @@
         singleViewController = [[SingleViewController alloc] initWithWindowController:self];
         doubleViewController = [[DoubleViewController alloc] initWithWindowController:self];
         currentViewController = nil;
+        isFullScreen = FALSE;
     }
     
     return self;
@@ -47,6 +51,7 @@
 {
     [singleViewController release];
     [doubleViewController release];
+    [originalTitle release];
     [super dealloc];
 }
 
@@ -60,6 +65,13 @@
 - (void)clearImageView
 {
     [currentViewController clearImageView];
+}
+
+
+- (void)setWindowTitle:(NSString *)newTitle
+{
+    self.originalTitle = newTitle;
+    [self.window setTitle:newTitle];
 }
 
 
@@ -164,5 +176,55 @@
     [currentViewController zoomOut:sender];
 }
 
+
+- (IBAction)toggleFullScreen:(id)sender
+{
+    if (isFullScreen) {
+        isFullScreen = FALSE;
+        [self stopFullScreen];
+    } else {
+        isFullScreen = TRUE;
+        [self startFullScreen];
+    }
+}
+
+
+- (void)startFullScreen
+{
+    // see also:
+    // http://cocoadevcentral.com/articles/000028.php
+    // http://stackoverflow.com/questions/4921910/how-to-make-a-mac-osx-cocoa-application-fullscreen
+    
+    originalWindowRect = self.window.frame;
+    originalStyleMask = self.window.styleMask;
+    originalWindowLevel = self.window.level;
+    self.originalTitle = self.window.title;
+    
+    if (CGDisplayCapture( kCGDirectMainDisplay ) != kCGErrorSuccess) {
+        NSLog( @"Couldn't capture the main display!" );
+    }
+    
+    int windowLevel = CGShieldingWindowLevel();
+    NSRect screenRect = [[NSScreen mainScreen] frame];
+    
+    NSLog(@"full screen window size ");
+    [self.window setStyleMask:NSBorderlessWindowMask];
+    [self.window setFrame:screenRect display:YES];
+    [self.window setLevel:windowLevel];
+    [self.window makeKeyAndOrderFront:nil];
+}
+
+
+- (void)stopFullScreen
+{
+    if (CGDisplayRelease( kCGDirectMainDisplay ) != kCGErrorSuccess) {
+        NSLog( @"Couldn't release the display(s)!" );
+    }
+    NSLog(@"restore window size ");
+    [self.window setStyleMask:originalStyleMask];
+    [self.window setLevel:originalWindowLevel];
+    [self.window setFrame:originalWindowRect display:YES];
+    [self.window setTitle:self.originalTitle];
+}
 
 @end

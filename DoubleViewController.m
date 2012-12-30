@@ -7,9 +7,13 @@
 //
 
 #import "DoubleViewController.h"
+#import "LutrinWindowController.h"
+
 
 @interface DoubleViewController (Util)
+
 - (NSString *)makeTitle:(NSURL*)leftUrl right:(NSURL *)rightUrl;
+
 @end
 
 
@@ -21,7 +25,7 @@
 @synthesize leftToRight;
 
 
-- (id)initWithWindowController:(NSWindowController *)_windowController
+- (id)initWithWindowController:(LutrinWindowController *)_windowController
 {
     self = [super initWithWindowController:_windowController
                                    nibName:@"DoubleViewController"];
@@ -86,7 +90,7 @@
                properties:&imageProperties];
         [self loadImageTo:self.rightImageView URL:[self transparentImage]
                properties:&rightImageProperties];
-        [self.windowController.window setTitle:@"no image"];
+        [self.windowController setWindowTitle:@"no image"];
         return;
     }
 
@@ -111,7 +115,7 @@
     }
     [self loadImageTo:self.imageView URL:leftUrl properties:&imageProperties];
     [self loadImageTo:self.rightImageView URL:rightUrl properties:&rightImageProperties];
-    [self.windowController.window setTitle:[self makeTitle:leftUrl right:rightUrl]];
+    [self.windowController setWindowTitle:[self makeTitle:leftUrl right:rightUrl]];
 }
 
 

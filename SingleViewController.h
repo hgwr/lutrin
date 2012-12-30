@@ -8,9 +8,11 @@
 
 #import <Quartz/Quartz.h>
 
+@class LutrinWindowController;
+
 @interface SingleViewController : NSViewController
 {
-    NSWindowController *windowController;
+    LutrinWindowController *windowController;
     IBOutlet IKImageView *imageView;
     NSDictionary *imageProperties;
     NSURL *currentFile;
@@ -18,16 +20,16 @@
     NSURL *cacheDir;
 }
 
-@property (assign) NSWindowController *windowController;
+@property (assign) LutrinWindowController *windowController;
 @property (assign) IKImageView *imageView;
 @property (retain) NSDictionary *imageProperties;
 @property (retain) NSURL *currentFile;
 @property (retain) NSArray *fileList;
 @property (retain) NSURL *cacheDir;
 
-- (id)initWithWindowController:(NSWindowController *)_windowController
+- (id)initWithWindowController:(LutrinWindowController *)_windowController
                        nibName:(NSString *)nibNameOrNil;
-- (id)initWithWindowController:(NSWindowController *)_windowController;
+- (id)initWithWindowController:(LutrinWindowController *)_windowController;
 
 - (void)openFileImpl:(NSURL*)url;
 - (void)openImageURL:(NSURL*)url;
