@@ -12,25 +12,65 @@
 
 @end
 
+
 @implementation DoubleViewController
 
-@synthesize windowController;
-@synthesize leftImageView;
+
 @synthesize rightImageView;
-@synthesize imageProperties;
-@synthesize currentFile;
-@synthesize fileList;
-@synthesize cacheDir;
 
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithWindowController:(NSWindowController *)_windowController
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithWindowController:_windowController nibName:@"DoubleViewController"];
     if (self) {
-        // Initialization code here.
+
     }
     
     return self;
 }
+
+
+- (void)openImageURL:(NSURL*)url
+{
+    // TODO override
+    [self loadImageTo:self.imageView URL:url];
+    [self.windowController.window setTitleWithRepresentedFilename:[url path]];
+}
+
+
+- (void)windowDidResize:(NSNotification *)notification
+{
+    [self.imageView zoomImageToFit:self];
+    [self.rightImageView zoomImageToFit:self];
+}
+
+
+- (IBAction)zoomActualSize: (id)sender
+{
+    [super zoomActualSize:sender];
+    [self.rightImageView zoomImageToActualSize:sender];
+}
+
+
+- (IBAction)zoomFitToWindow: (id)sender
+{
+    [super zoomFitToWindow:sender];
+    [self.rightImageView zoomImageToFit:sender];
+}
+
+
+- (IBAction)zoomIn: (id)sender
+{
+    [super zoomIn:sender];
+    [self.rightImageView zoomIn:sender];
+}
+
+
+- (IBAction)zoomOut: (id)sender
+{
+    [super zoomOut:sender];
+    [self.rightImageView zoomOut:sender];
+}
+
 
 @end

@@ -16,7 +16,6 @@
 		17F592471682A46C00822D34 /* ScrollViewWorkaround.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F592461682A46C00822D34 /* ScrollViewWorkaround.m */; };
 		17FC3A9F168EE240003BE5DA /* lutrin.icns in Resources */ = {isa = PBXBuildFile; fileRef = 17FC3A9E168EE240003BE5DA /* lutrin.icns */; };
 		17FC3AA9168EE3D8003BE5DA /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 17FC3AA8168EE3D8003BE5DA /* Credits.rtf */; };
-		17FC3AAC168FCCAB003BE5DA /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FC3AAB168FCCAB003BE5DA /* ImageViewController.m */; };
 		17FC3AB0168FCD4A003BE5DA /* SingleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FC3AAE168FCD4A003BE5DA /* SingleViewController.m */; };
 		17FC3AB1168FCD4A003BE5DA /* SingleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17FC3AAF168FCD4A003BE5DA /* SingleViewController.xib */; };
 		17FCF4C516825A5C00873D37 /* LutrinTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FCF4C416825A5C00873D37 /* LutrinTests.m */; };
@@ -45,8 +44,6 @@
 		17F592461682A46C00822D34 /* ScrollViewWorkaround.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollViewWorkaround.m; sourceTree = "<group>"; };
 		17FC3A9E168EE240003BE5DA /* lutrin.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = lutrin.icns; sourceTree = "<group>"; };
 		17FC3AA8168EE3D8003BE5DA /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
-		17FC3AAA168FCCAB003BE5DA /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
-		17FC3AAB168FCCAB003BE5DA /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
 		17FC3AAD168FCD4A003BE5DA /* SingleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleViewController.h; sourceTree = "<group>"; };
 		17FC3AAE168FCD4A003BE5DA /* SingleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleViewController.m; sourceTree = "<group>"; };
 		17FC3AAF168FCD4A003BE5DA /* SingleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleViewController.xib; sourceTree = "<group>"; };
@@ -101,8 +98,6 @@
 				256AC3D90F4B6AC300CF3369 /* lutrinAppDelegate.m */,
 				173C20071682668E00D0A92E /* LutrinWindowController.h */,
 				173C20081682668E00D0A92E /* LutrinWindowController.m */,
-				17FC3AAA168FCCAB003BE5DA /* ImageViewController.h */,
-				17FC3AAB168FCCAB003BE5DA /* ImageViewController.m */,
 				17FC3AAD168FCD4A003BE5DA /* SingleViewController.h */,
 				17FC3AAE168FCD4A003BE5DA /* SingleViewController.m */,
 				17B8A284168FF74400100F16 /* DoubleViewController.h */,
@@ -320,7 +315,6 @@
 				173C200A1682668E00D0A92E /* LutrinWindowController.m in Sources */,
 				17F5923D168295DE00822D34 /* RegexKitLite.m in Sources */,
 				17F592471682A46C00822D34 /* ScrollViewWorkaround.m in Sources */,
-				17FC3AAC168FCCAB003BE5DA /* ImageViewController.m in Sources */,
 				17FC3AB0168FCD4A003BE5DA /* SingleViewController.m in Sources */,
 				17B8A287168FF74400100F16 /* DoubleViewController.m in Sources */,
 			);

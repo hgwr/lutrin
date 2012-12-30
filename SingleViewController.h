@@ -7,9 +7,8 @@
 //
 
 #import <Quartz/Quartz.h>
-#import "ImageViewController.h"
 
-@interface SingleViewController : ImageViewController
+@interface SingleViewController : NSViewController
 {
     NSWindowController *windowController;
     IBOutlet IKImageView *imageView;
@@ -26,6 +25,8 @@
 @property (retain) NSArray *fileList;
 @property (retain) NSURL *cacheDir;
 
+- (id)initWithWindowController:(NSWindowController *)_windowController
+                       nibName:(NSString *)nibNameOrNil;
 - (id)initWithWindowController:(NSWindowController *)_windowController;
 
 - (IBAction)openFile: (id)sender;
@@ -33,6 +34,7 @@
 - (IBAction)prevFile: (id)sender;
 - (IBAction)firstFile: (id)sender;
 - (IBAction)lastFile: (id)sender;
+
 - (void)openFileImpl: (NSURL*)url;
 - (void)openImageURL: (NSURL*)url;
 - (void)windowDidResize:(NSNotification *)notification;
@@ -41,5 +43,12 @@
 - (IBAction)zoomFitToWindow: (id)sender;
 - (IBAction)zoomIn: (id)sender;
 - (IBAction)zoomOut: (id)sender;
+
+- (void)updateFileListAt:(NSURL *)directory recursively:(BOOL)doRecursively;
+- (NSUInteger)getFileIndex;
+- (void)setupCacheDir;
+- (void)unzipFile:(NSString *)path;
+- (NSMutableArray *)scanURLImages:(NSURL *)directoryToScan;
+- (void)loadImageTo:(IKImageView *)_imageView URL:(NSURL *)url;
 
 @end

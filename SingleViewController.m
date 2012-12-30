@@ -11,15 +11,11 @@
 
 @interface SingleViewController (Utils)
 
-- (void)updateFileListAt:(NSURL *)directory recursively:(BOOL)doRecursively;
-- (NSUInteger)getFileIndex;
-- (void)setupCacheDir;
-- (void)unzipFile:(NSString *)path;
-- (NSMutableArray *)scanURLImages:(NSURL *)directoryToScan;
-
 @end
 
+
 @implementation SingleViewController
+
 
 @synthesize windowController;
 @synthesize imageView;
@@ -28,15 +24,24 @@
 @synthesize fileList;
 @synthesize cacheDir;
 
+
 - (id)initWithWindowController:(NSWindowController *)_windowController
+                       nibName:(NSString *)nibNameOrNil
 {
-    self = [super initWithNibName:@"SingleViewController" bundle:nil];
+    self = [super initWithNibName:nibNameOrNil bundle:nil];
     if (self) {
         windowController = _windowController;
         [self setupCacheDir];
     }
-
+    
     return self;
+}
+
+
+- (id)initWithWindowController:(NSWindowController *)_windowController
+{
+    return [self initWithWindowController:_windowController
+                                  nibName:@"SingleViewController"];
 }
 
 
@@ -88,6 +93,13 @@
 
 - (void)openImageURL:(NSURL*)url
 {
+    [self loadImageTo:self.imageView URL:url];
+    [self.windowController.window setTitleWithRepresentedFilename:[url path]];
+}
+
+
+- (void)loadImageTo:(IKImageView *)_imageView URL:(NSURL *)url
+{
     self.currentFile = url;
     
     CGImageRef image = NULL;
@@ -105,11 +117,10 @@
     }
     
     if (image) {
-        self.imageView.autoresizes = YES;
-        [self.imageView setImage:image imageProperties:imageProperties];
-        self.imageView.autoresizes = NO;
+        _imageView.autoresizes = YES;
+        [_imageView setImage:image imageProperties:imageProperties];
+        _imageView.autoresizes = NO;
         CGImageRelease(image);
-        [self.windowController.window setTitleWithRepresentedFilename:[url path]];
     }
 }
 
