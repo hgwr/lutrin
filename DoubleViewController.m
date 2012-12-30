@@ -58,6 +58,15 @@
 - (void)openImageURL:(NSURL*)url
 {
     self.currentFile = url;
+    if (url == nil) {
+        [self loadImageTo:self.imageView URL:[self transparentImage]
+               properties:&imageProperties];
+        [self loadImageTo:self.rightImageView URL:[self transparentImage]
+               properties:&rightImageProperties];
+        [self.windowController.window setTitle:@"no image"];
+        return;
+    }
+    
     if (leftToRight) {
         if ([self getFileIndex] == 0) {
             [self loadImageTo:self.imageView URL:[self transparentImage]

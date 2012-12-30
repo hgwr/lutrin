@@ -94,6 +94,12 @@
 - (void)openImageURL:(NSURL*)url
 {
     self.currentFile = url;
+    if (url == nil) {
+        [self loadImageTo:self.imageView URL:[self transparentImage]
+               properties:&imageProperties];
+        [self.windowController.window setTitle:@"no image"];
+        return;
+    }
     [self loadImageTo:self.imageView URL:url properties:&imageProperties];
     [self.windowController.window setTitleWithRepresentedFilename:[url path]];
 }
@@ -135,6 +141,10 @@
 
 - (void)updateFileListAt:(NSURL *)directory recursively:(BOOL)doRecursively
 {
+    if (directory == nil) {
+        self.fileList = [NSArray array];
+        return;
+    }
     NSFileManager *fm = [NSFileManager defaultManager];
     NSArray *urls;
     if (doRecursively) {

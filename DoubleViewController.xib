@@ -44,7 +44,7 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<object class="NSScrollView" id="862194946">
 						<reference key="NSNextResponder" ref="1005"/>
-						<int key="NSvFlags">274</int>
+						<int key="NSvFlags">275</int>
 						<object class="NSMutableArray" key="NSSubviews">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="NSClipView" id="856502514">
@@ -99,7 +99,6 @@
 								<string key="NSFrame">{{1, 584}, {383, 15}}</string>
 								<reference key="NSSuperview" ref="862194946"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:26</string>
 								<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 								<int key="NSsFlags">1</int>
@@ -123,7 +122,7 @@
 					</object>
 					<object class="NSScrollView" id="187446826">
 						<reference key="NSNextResponder" ref="1005"/>
-						<int key="NSvFlags">274</int>
+						<int key="NSvFlags">278</int>
 						<object class="NSMutableArray" key="NSSubviews">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="NSClipView" id="917667654">
@@ -388,6 +387,8 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>nextFile:</string>
+							<string>prevFile:</string>
 							<string>zoomActualSize:</string>
 							<string>zoomFitToWindow:</string>
 							<string>zoomIn:</string>
@@ -395,6 +396,8 @@
 						</object>
 						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -405,6 +408,8 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>nextFile:</string>
+							<string>prevFile:</string>
 							<string>zoomActualSize:</string>
 							<string>zoomFitToWindow:</string>
 							<string>zoomIn:</string>
@@ -412,6 +417,14 @@
 						</object>
 						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBActionInfo">
+								<string key="name">nextFile:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">prevFile:</string>
+								<string key="candidateClassName">id</string>
+							</object>
 							<object class="IBActionInfo">
 								<string key="name">zoomActualSize:</string>
 								<string key="candidateClassName">id</string>

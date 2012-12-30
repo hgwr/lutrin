@@ -62,6 +62,7 @@
     [self displayViewController:self.singleViewController];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:LT_SINGLE_VIEW forKey:LT_VIEW_TYPE];
+    NSLog(@"set state");
     self.singleMenuItem.state = NSOnState;
     self.leftToRightMenuItem.state = NSOffState;
     self.rightToLeftMenuItem.state = NSOffState;
@@ -74,6 +75,7 @@
     [self displayViewController:self.doubleViewController];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:LT_LEFT_TO_RIGHT forKey:LT_VIEW_TYPE];
+    NSLog(@"set state");
     self.singleMenuItem.state = NSOffState;
     self.leftToRightMenuItem.state = NSOnState;
     self.rightToLeftMenuItem.state = NSOffState;
@@ -86,6 +88,7 @@
     [self displayViewController:self.doubleViewController];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:LT_RIGHT_TO_LEFT forKey:LT_VIEW_TYPE];
+    NSLog(@"set state");
     self.singleMenuItem.state = NSOffState;
     self.leftToRightMenuItem.state = NSOffState;
     self.rightToLeftMenuItem.state = NSOnState;
