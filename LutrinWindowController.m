@@ -13,7 +13,7 @@
 
 @interface LutrinWindowController (Utils)
 
-- (void)displayViewController:(ManagingViewController *)vc;
+- (void)displayViewController:(ImageViewController *)vc;
 
 @end
 
@@ -48,7 +48,7 @@
 }
 
 
-- (void)displayViewController:(ManagingViewController *)vc
+- (void)displayViewController:(ImageViewController *)vc
 {
     NSLog(@"displayViewController");
     [self.box setContentView:vc.view];

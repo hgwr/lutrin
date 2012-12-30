@@ -7,9 +7,9 @@
 //
 
 #import <Quartz/Quartz.h>
-#import "ManagingViewController.h"
+#import "ImageViewController.h"
 
-@interface SingleViewController : ManagingViewController
+@interface SingleViewController : ImageViewController
 {
     NSWindowController *windowController;
     IBOutlet IKImageView *imageView;

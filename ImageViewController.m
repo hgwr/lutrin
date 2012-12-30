@@ -6,13 +6,13 @@
 //
 //
 
-#import "ManagingViewController.h"
+#import "ImageViewController.h"
 
-@interface ManagingViewController ()
+@interface ImageViewController ()
 
 @end
 
-@implementation ManagingViewController
+@implementation ImageViewController
 
 @synthesize managedObjectContext;
 

@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface ManagingViewController : NSViewController {
+@interface ImageViewController : NSViewController {
     NSManagedObjectContext *managedObjectContext;
 }
 
