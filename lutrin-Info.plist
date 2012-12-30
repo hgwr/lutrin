@@ -9,6 +9,7 @@
 		<dict>
 			<key>CFBundleTypeExtensions</key>
 			<array>
+				<string>zip</string>
 				<string>tiff</string>
 				<string>bmp</string>
 				<string>gif</string>
