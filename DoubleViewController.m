@@ -17,16 +17,24 @@
 
 
 @synthesize rightImageView;
+@synthesize leftToRight;
 
 
 - (id)initWithWindowController:(NSWindowController *)_windowController
 {
     self = [super initWithWindowController:_windowController nibName:@"DoubleViewController"];
     if (self) {
-
+        leftToRight = TRUE;
     }
     
     return self;
+}
+
+
+- (void)setLeftToRight:(BOOL)leftToRight_
+{
+    // TODO 右開きか左開きかの変更処理
+    leftToRight = leftToRight_;
 }
 
 

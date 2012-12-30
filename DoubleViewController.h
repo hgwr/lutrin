@@ -11,12 +11,14 @@
 
 @interface DoubleViewController : SingleViewController
 {
-
     IBOutlet IKImageView *rightImageView;
+    BOOL leftToRight;
 }
 
 
 @property (assign) IKImageView *rightImageView;
+@property (nonatomic,assign) BOOL leftToRight;
+
 
 - (id)initWithWindowController:(NSWindowController *)_windowController;
 

@@ -7,8 +7,10 @@
 //
 
 #import <AppKit/AppKit.h>
+#import "LutrinConstants.h"
 #import "LutrinWindowController.h"
 #import "SingleViewController.h"
+#import "DoubleViewController.h"
 
 
 @interface LutrinWindowController (Utils)
@@ -21,13 +23,20 @@
 @implementation LutrinWindowController
 
 @synthesize box;
+@synthesize singleMenuItem;
+@synthesize leftToRightMenuItem;
+@synthesize rightToLeftMenuItem;
 @synthesize singleViewController;
+@synthesize doubleViewController;
+
 
 - (id)initWithWindow:(NSWindow *)window
 {
     self = [super initWithWindow:window];
     if (self) {
         singleViewController = [[SingleViewController alloc] initWithWindowController:self];
+        doubleViewController = [[DoubleViewController alloc] initWithWindowController:self];
+        currentViewController = nil;
     }
     
     return self;
@@ -37,85 +46,116 @@
 - (void)dealloc
 {
     [singleViewController release];
+    [doubleViewController release];
     [super dealloc];
 }
 
 
-- (void)displaySingleViewController
+- (void)openFileImpl:(NSURL*)url
 {
-    
+    [currentViewController openFileImpl:url];
+}
+
+
+- (IBAction)displaySingleViewController:(id)sender
+{
     [self displayViewController:self.singleViewController];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:LT_SINGLE_VIEW forKey:LT_VIEW_TYPE];
+    self.singleMenuItem.state = NSOnState;
+    self.leftToRightMenuItem.state = NSOffState;
+    self.rightToLeftMenuItem.state = NSOffState;
+}
+
+
+- (IBAction)displayDoubleViewLeftToRight:(id)sender
+{
+    [self displayViewController:self.doubleViewController];
+    self.doubleViewController.leftToRight = TRUE;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:LT_LEFT_TO_RIGHT forKey:LT_VIEW_TYPE];
+    self.singleMenuItem.state = NSOffState;
+    self.leftToRightMenuItem.state = NSOnState;
+    self.rightToLeftMenuItem.state = NSOffState;
+}
+
+
+- (IBAction)displayDoubleViewRightToLeft:(id)sender
+{
+    [self displayViewController:self.doubleViewController];
+    self.doubleViewController.leftToRight = FALSE;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:LT_RIGHT_TO_LEFT forKey:LT_VIEW_TYPE];
+    self.singleMenuItem.state = NSOffState;
+    self.leftToRightMenuItem.state = NSOffState;
+    self.rightToLeftMenuItem.state = NSOnState;
 }
 
 
 - (void)displayViewController:(SingleViewController *)vc
 {
-    NSLog(@"displayViewController");
+    NSURL *currentFile = currentViewController.currentFile;
+    currentViewController = vc;
     [self.box setContentView:vc.view];
-    
-    NSRect boxRect = [[self.box contentView] frame];
-    NSLog(@"boxRect = %f, %f, %f, %f", boxRect.origin.x, boxRect.origin.y, boxRect.size.width, boxRect.size.height);
-
-    NSRect vcViewRect = vc.view.frame;
-    NSLog(@"vcViewRect = %f, %f, %f, %f", vcViewRect.origin.x, vcViewRect.origin.y, vcViewRect.size.width, vcViewRect.size.height);
+    [currentViewController openFileImpl:currentFile];
 }
 
 
 - (void)windowDidResize:(NSNotification *)notification
 {
-    [self.singleViewController windowDidResize:notification];
+    [currentViewController windowDidResize:notification];
 }
 
 
 - (IBAction)openFile:(id)sender
 {
-    [self.singleViewController openFile:sender];
+    [currentViewController openFile:sender];
 }
 
 
 - (IBAction)nextFile: (id)sender
 {
-    [self.singleViewController nextFile:sender];
+    [currentViewController nextFile:sender];
 }
 
 
 - (IBAction)prevFile: (id)sender
 {
-    [self.singleViewController prevFile:sender];
+    [currentViewController prevFile:sender];
 }
 
 
 - (IBAction)firstFile: (id)sender
 {
-    [self.singleViewController firstFile:sender];
+    [currentViewController firstFile:sender];
 }
 
 
 - (IBAction)lastFile: (id)sender
 {
-    [self.singleViewController lastFile:sender];
+    [currentViewController lastFile:sender];
 }
 
 
 - (IBAction)zoomActualSize: (id)sender
 {
-    [self.singleViewController zoomActualSize:sender];
+    [currentViewController zoomActualSize:sender];
 }
 
 
 - (IBAction)zoomFitToWindow: (id)sender
 {
-    [self.singleViewController zoomFitToWindow:sender];
+    [currentViewController zoomFitToWindow:sender];
 }
 
 
 - (IBAction)zoomIn: (id)sender {
-    [self.singleViewController zoomIn:sender];
+    [currentViewController zoomIn:sender];
 }
 
 
 - (IBAction)zoomOut: (id)sender {
-    [self.singleViewController zoomOut:sender];
+    [currentViewController zoomOut:sender];
 }
 
 

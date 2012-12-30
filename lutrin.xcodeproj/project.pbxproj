@@ -34,6 +34,7 @@
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		173C20071682668E00D0A92E /* LutrinWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LutrinWindowController.h; sourceTree = "<group>"; };
 		173C20081682668E00D0A92E /* LutrinWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LutrinWindowController.m; sourceTree = "<group>"; };
+		17A2B60816902D1600A420B4 /* LutrinConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LutrinConstants.h; sourceTree = "<group>"; };
 		17B8A284168FF74400100F16 /* DoubleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubleViewController.h; sourceTree = "<group>"; };
 		17B8A285168FF74400100F16 /* DoubleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubleViewController.m; sourceTree = "<group>"; };
 		17B8A286168FF74400100F16 /* DoubleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DoubleViewController.xib; sourceTree = "<group>"; };
@@ -102,6 +103,7 @@
 				17FC3AAE168FCD4A003BE5DA /* SingleViewController.m */,
 				17B8A284168FF74400100F16 /* DoubleViewController.h */,
 				17B8A285168FF74400100F16 /* DoubleViewController.m */,
+				17A2B60816902D1600A420B4 /* LutrinConstants.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
