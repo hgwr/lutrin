@@ -84,9 +84,9 @@
             [self openImageURL:(NSURL *)[self.fileList objectAtIndex:0]];
         }
     } else {
-        [self openImageURL:url];
         [self updateFileListAt:[url URLByDeletingLastPathComponent]
                    recursively:NO];
+        [self openImageURL:url];
     }
 }
 
@@ -208,6 +208,7 @@ includingPropertiesForKeys:[NSArray arrayWithObjects:NSURLIsDirectoryKey,nil]
 
 - (IBAction)nextFile: (id)sender
 {
+    if (self.fileList.count == 0) return;
     NSUInteger index = [self getFileIndex];
     index += 1;
     if (index >= self.fileList.count)
@@ -220,6 +221,7 @@ includingPropertiesForKeys:[NSArray arrayWithObjects:NSURLIsDirectoryKey,nil]
 
 - (IBAction)prevFile: (id)sender
 {
+    if (self.fileList.count == 0) return;
     NSUInteger index = [self getFileIndex];
     if (index == 0)
         index = self.fileList.count - 1;
@@ -233,6 +235,7 @@ includingPropertiesForKeys:[NSArray arrayWithObjects:NSURLIsDirectoryKey,nil]
 
 - (IBAction)firstFile: (id)sender
 {
+    if (self.fileList.count == 0) return;
     NSURL *url = (NSURL *)[self.fileList objectAtIndex:0];
     if (url)
         [self openImageURL:url];
@@ -241,6 +244,7 @@ includingPropertiesForKeys:[NSArray arrayWithObjects:NSURLIsDirectoryKey,nil]
 
 - (IBAction)lastFile: (id)sender
 {
+    if (self.fileList.count == 0) return;
     NSURL *url = (NSURL *)[self.fileList objectAtIndex:(self.fileList.count - 1)];
     if (url)
         [self openImageURL:url];

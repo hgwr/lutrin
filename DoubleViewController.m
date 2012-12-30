@@ -102,6 +102,7 @@
 
 - (IBAction)nextFile: (id)sender
 {
+    if (self.fileList.count == 0) return;
     NSUInteger index = [self getFileIndex];
     index += (index == 0) ? 1 : 2;
     if (index >= self.fileList.count)
@@ -114,6 +115,7 @@
 
 - (IBAction)prevFile: (id)sender
 {
+    if (self.fileList.count == 0) return;
     NSUInteger index = [self getFileIndex];
     if (index == 0 || index == 1)
         index = 0;
