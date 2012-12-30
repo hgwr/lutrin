@@ -94,9 +94,9 @@
 - (IBAction)nextFile: (id)sender
 {
     NSUInteger index = [self getFileIndex];
-    index += 2;
+    index += (index == 0) ? 1 : 2;
     if (index >= self.fileList.count)
-        index = 0;
+        index = self.fileList.count - 1;
     NSURL *url = (NSURL *)[self.fileList objectAtIndex:index];
     if (url)
         [self openImageURL:url];
@@ -106,8 +106,8 @@
 - (IBAction)prevFile: (id)sender
 {
     NSUInteger index = [self getFileIndex];
-    if (index == 0)
-        index = self.fileList.count - 1;
+    if (index == 0 || index == 1)
+        index = 0;
     else
         index -= 2;
     NSURL *url = (NSURL *)[self.fileList objectAtIndex:index];
