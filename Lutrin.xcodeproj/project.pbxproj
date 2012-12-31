@@ -12,6 +12,9 @@
 		17A2B60A16903EA100A420B4 /* transparent1x1.png in Resources */ = {isa = PBXBuildFile; fileRef = 17A2B60916903EA100A420B4 /* transparent1x1.png */; };
 		17B8A287168FF74400100F16 /* DoubleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B8A285168FF74400100F16 /* DoubleViewController.m */; };
 		17B8A288168FF74400100F16 /* DoubleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17B8A286168FF74400100F16 /* DoubleViewController.xib */; };
+		17D9FBDE1691BD2B00768445 /* lutrinIcon16.png in Resources */ = {isa = PBXBuildFile; fileRef = 17D9FBDB1691BD2B00768445 /* lutrinIcon16.png */; };
+		17D9FBDF1691BD2B00768445 /* lutrinIcon64.png in Resources */ = {isa = PBXBuildFile; fileRef = 17D9FBDC1691BD2B00768445 /* lutrinIcon64.png */; };
+		17D9FBE11691BD3800768445 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 17D9FBE01691BD3800768445 /* index.html */; };
 		17F5923D168295DE00822D34 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F5923B168295DE00822D34 /* RegexKitLite.m */; };
 		17F5924016829E3200822D34 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F5923F16829E3200822D34 /* libicucore.dylib */; };
 		17F592471682A46C00822D34 /* ScrollViewWorkaround.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F592461682A46C00822D34 /* ScrollViewWorkaround.m */; };
@@ -40,6 +43,10 @@
 		17B8A284168FF74400100F16 /* DoubleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubleViewController.h; sourceTree = "<group>"; };
 		17B8A285168FF74400100F16 /* DoubleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubleViewController.m; sourceTree = "<group>"; };
 		17B8A286168FF74400100F16 /* DoubleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DoubleViewController.xib; sourceTree = "<group>"; };
+		17D9FBDA1691BD2B00768445 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = English; path = English.lproj/index.html; sourceTree = "<group>"; };
+		17D9FBDB1691BD2B00768445 /* lutrinIcon16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lutrinIcon16.png; sourceTree = "<group>"; };
+		17D9FBDC1691BD2B00768445 /* lutrinIcon64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lutrinIcon64.png; sourceTree = "<group>"; };
+		17D9FBE21691BD4700768445 /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Japanese; path = Japanese.lproj/index.html; sourceTree = "<group>"; };
 		17F5923B168295DE00822D34 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
 		17F5923C168295DE00822D34 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
 		17F5923F16829E3200822D34 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = /usr/lib/libicucore.dylib; sourceTree = "<absolute>"; };
@@ -131,6 +138,16 @@
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
+		17D9FBD91691BD2B00768445 /* Helpbook */ = {
+			isa = PBXGroup;
+			children = (
+				17D9FBE01691BD3800768445 /* index.html */,
+				17D9FBDB1691BD2B00768445 /* lutrinIcon16.png */,
+				17D9FBDC1691BD2B00768445 /* lutrinIcon64.png */,
+			);
+			path = Helpbook;
+			sourceTree = "<group>";
+		};
 		17FCF4C216825A3600873D37 /* LutrinTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +192,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				17D9FBD91691BD2B00768445 /* Helpbook */,
 				17A2B60916903EA100A420B4 /* transparent1x1.png */,
 				17FC3AA8168EE3D8003BE5DA /* Credits.rtf */,
 				17FC3A9E168EE240003BE5DA /* Lutrin.icns */,
@@ -282,6 +300,9 @@
 				17FC3AB1168FCD4A003BE5DA /* SingleViewController.xib in Resources */,
 				17B8A288168FF74400100F16 /* DoubleViewController.xib in Resources */,
 				17A2B60A16903EA100A420B4 /* transparent1x1.png in Resources */,
+				17D9FBE11691BD3800768445 /* index.html in Resources */,
+				17D9FBDE1691BD2B00768445 /* lutrinIcon16.png in Resources */,
+				17D9FBDF1691BD2B00768445 /* lutrinIcon64.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +356,15 @@
 				089C165DFE840E0CC02AAC07 /* English */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		17D9FBE01691BD3800768445 /* index.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				17D9FBDA1691BD2B00768445 /* English */,
+				17D9FBE21691BD4700768445 /* Japanese */,
+			);
+			name = index.html;
 			sourceTree = "<group>";
 		};
 		1DDD58140DA1D0A300B32029 /* MainMenu.xib */ = {
