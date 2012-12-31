@@ -7,14 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		170F13101691C1F000AD34BC /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 170F130E1691C1F000AD34BC /* index.html */; };
 		173C200A1682668E00D0A92E /* LutrinWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 173C20081682668E00D0A92E /* LutrinWindowController.m */; };
 		173C200C1682679B00D0A92E /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B97324FDCFA39411CA2CEA /* AppKit.framework */; };
+		1797243B16924E8300FC9D1E /* Helpbook in Resources */ = {isa = PBXBuildFile; fileRef = 1797243916924E8300FC9D1E /* Helpbook */; };
 		17A2B60A16903EA100A420B4 /* transparent1x1.png in Resources */ = {isa = PBXBuildFile; fileRef = 17A2B60916903EA100A420B4 /* transparent1x1.png */; };
 		17B8A287168FF74400100F16 /* DoubleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B8A285168FF74400100F16 /* DoubleViewController.m */; };
 		17B8A288168FF74400100F16 /* DoubleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17B8A286168FF74400100F16 /* DoubleViewController.xib */; };
-		17D9FBDE1691BD2B00768445 /* lutrinIcon16.png in Resources */ = {isa = PBXBuildFile; fileRef = 17D9FBDB1691BD2B00768445 /* lutrinIcon16.png */; };
-		17D9FBDF1691BD2B00768445 /* lutrinIcon64.png in Resources */ = {isa = PBXBuildFile; fileRef = 17D9FBDC1691BD2B00768445 /* lutrinIcon64.png */; };
 		17F5923D168295DE00822D34 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F5923B168295DE00822D34 /* RegexKitLite.m */; };
 		17F5924016829E3200822D34 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F5923F16829E3200822D34 /* libicucore.dylib */; };
 		17F592471682A46C00822D34 /* ScrollViewWorkaround.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F592461682A46C00822D34 /* ScrollViewWorkaround.m */; };
@@ -36,16 +34,14 @@
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
-		170F130E1691C1F000AD34BC /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		173C20071682668E00D0A92E /* LutrinWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LutrinWindowController.h; sourceTree = "<group>"; };
 		173C20081682668E00D0A92E /* LutrinWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LutrinWindowController.m; sourceTree = "<group>"; };
+		1797243A16924E8300FC9D1E /* English */ = {isa = PBXFileReference; lastKnownFileType = folder; name = English; path = English.lproj/Helpbook; sourceTree = "<group>"; };
 		17A2B60816902D1600A420B4 /* LutrinConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LutrinConstants.h; sourceTree = "<group>"; };
 		17A2B60916903EA100A420B4 /* transparent1x1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = transparent1x1.png; sourceTree = "<group>"; };
 		17B8A284168FF74400100F16 /* DoubleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubleViewController.h; sourceTree = "<group>"; };
 		17B8A285168FF74400100F16 /* DoubleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubleViewController.m; sourceTree = "<group>"; };
 		17B8A286168FF74400100F16 /* DoubleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DoubleViewController.xib; sourceTree = "<group>"; };
-		17D9FBDB1691BD2B00768445 /* lutrinIcon16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lutrinIcon16.png; sourceTree = "<group>"; };
-		17D9FBDC1691BD2B00768445 /* lutrinIcon64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lutrinIcon64.png; sourceTree = "<group>"; };
 		17F5923B168295DE00822D34 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
 		17F5923C168295DE00822D34 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
 		17F5923F16829E3200822D34 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = /usr/lib/libicucore.dylib; sourceTree = "<absolute>"; };
@@ -137,16 +133,6 @@
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
-		17D9FBD91691BD2B00768445 /* Helpbook */ = {
-			isa = PBXGroup;
-			children = (
-				170F130E1691C1F000AD34BC /* index.html */,
-				17D9FBDB1691BD2B00768445 /* lutrinIcon16.png */,
-				17D9FBDC1691BD2B00768445 /* lutrinIcon64.png */,
-			);
-			path = Helpbook;
-			sourceTree = "<group>";
-		};
 		17FCF4C216825A3600873D37 /* LutrinTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -191,7 +177,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				17D9FBD91691BD2B00768445 /* Helpbook */,
+				1797243916924E8300FC9D1E /* Helpbook */,
 				17A2B60916903EA100A420B4 /* transparent1x1.png */,
 				17FC3AA8168EE3D8003BE5DA /* Credits.rtf */,
 				17FC3A9E168EE240003BE5DA /* Lutrin.icns */,
@@ -299,9 +285,7 @@
 				17FC3AB1168FCD4A003BE5DA /* SingleViewController.xib in Resources */,
 				17B8A288168FF74400100F16 /* DoubleViewController.xib in Resources */,
 				17A2B60A16903EA100A420B4 /* transparent1x1.png in Resources */,
-				17D9FBDE1691BD2B00768445 /* lutrinIcon16.png in Resources */,
-				17D9FBDF1691BD2B00768445 /* lutrinIcon64.png in Resources */,
-				170F13101691C1F000AD34BC /* index.html in Resources */,
+				1797243B16924E8300FC9D1E /* Helpbook in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,6 +339,14 @@
 				089C165DFE840E0CC02AAC07 /* English */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1797243916924E8300FC9D1E /* Helpbook */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1797243A16924E8300FC9D1E /* English */,
+			);
+			name = Helpbook;
 			sourceTree = "<group>";
 		};
 		1DDD58140DA1D0A300B32029 /* MainMenu.xib */ = {
