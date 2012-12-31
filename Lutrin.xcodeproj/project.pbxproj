@@ -34,6 +34,7 @@
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		173B96A71692513F00E3AC9C /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Japanese; path = Japanese.lproj/Helpbook; sourceTree = "<group>"; };
 		173C20071682668E00D0A92E /* LutrinWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LutrinWindowController.h; sourceTree = "<group>"; };
 		173C20081682668E00D0A92E /* LutrinWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LutrinWindowController.m; sourceTree = "<group>"; };
 		1797243A16924E8300FC9D1E /* English */ = {isa = PBXFileReference; lastKnownFileType = folder; name = English; path = English.lproj/Helpbook; sourceTree = "<group>"; };
@@ -345,6 +346,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				1797243A16924E8300FC9D1E /* English */,
+				173B96A71692513F00E3AC9C /* Japanese */,
 			);
 			name = Helpbook;
 			sourceTree = "<group>";
