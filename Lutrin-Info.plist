@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CFBundleHelpBookName</key>
-	<string>Lutrin Help</string>
-	<key>CFBundleHelpBookFolder</key>
-	<string>Helpbook</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleDocumentTypes</key>
@@ -27,6 +23,10 @@
 	</array>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
+	<key>CFBundleHelpBookFolder</key>
+	<string>Helpbook</string>
+	<key>CFBundleHelpBookName</key>
+	<string>Lutrin Help</string>
 	<key>CFBundleIconFile</key>
 	<string>Lutrin</string>
 	<key>CFBundleIdentifier</key>
@@ -42,7 +42,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>2</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.utilities</string>
 	<key>LSMinimumSystemVersion</key>
