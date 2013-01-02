@@ -10,6 +10,11 @@ In addition, Lutrin can directly open a zip file.
 Archiving image files to a zip file, 
 you can view images sequentially in the zip file.
 
+## Build and Testing Environment
+
+* Mac OS X 10.6.8 with Xcode 3.2.6
+* Mac OS X 10.8.2 with Xcode 4.5.2
+
 ## License
 
 Lutrin is licensed under the MIT license.
