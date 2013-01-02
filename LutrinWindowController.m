@@ -149,9 +149,11 @@
 - (void)displayViewController:(SingleViewController *)vc
 {
     NSURL *currentFile = self.currentViewController.currentFile;
+    NSArray *fileList = self.currentViewController.fileList;
     self.currentViewController = vc;
     [self.box setContentView:vc.view];
-    [self.currentViewController openFileImpl:currentFile];
+    self.currentViewController.fileList = fileList;
+    [self.currentViewController openImageURL:currentFile];
 }
 
 
