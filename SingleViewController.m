@@ -131,7 +131,14 @@
     if (image) {
         imageView_.autoresizes = YES;
         [imageView_ setImage:image imageProperties:*imagePropRef_];
-        [imageView_ zoomImageToFit:nil];
+        NSNumber *pixelHeight = [*imagePropRef_ valueForKey:@"PixelHeight"];
+        NSNumber *pixelWidth = [*imagePropRef_ valueForKey:@"PixelWidth"];
+        if (imageView_.frame.size.height < pixelHeight.floatValue ||
+            imageView_.frame.size.width < pixelWidth.floatValue) {
+            [imageView_ zoomImageToFit:nil];
+        } else {
+            [imageView_ zoomImageToActualSize:nil];
+        }
         imageView_.autoresizes = NO;
         CGImageRelease(image);
     }
