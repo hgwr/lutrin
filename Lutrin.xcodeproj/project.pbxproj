@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		173C200A1682668E00D0A92E /* LutrinWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 173C20081682668E00D0A92E /* LutrinWindowController.m */; };
 		173C200C1682679B00D0A92E /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B97324FDCFA39411CA2CEA /* AppKit.framework */; };
+		17698533195FA1D0007C7964 /* MyNSApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 17698532195FA1D0007C7964 /* MyNSApplication.m */; };
+		17698534195FA1D0007C7964 /* MyNSApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 17698532195FA1D0007C7964 /* MyNSApplication.m */; };
 		1797243B16924E8300FC9D1E /* Helpbook in Resources */ = {isa = PBXBuildFile; fileRef = 1797243916924E8300FC9D1E /* Helpbook */; };
 		17A2B60A16903EA100A420B4 /* transparent1x1.png in Resources */ = {isa = PBXBuildFile; fileRef = 17A2B60916903EA100A420B4 /* transparent1x1.png */; };
 		17B8A287168FF74400100F16 /* DoubleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B8A285168FF74400100F16 /* DoubleViewController.m */; };
@@ -38,6 +40,8 @@
 		173B96A71692513F00E3AC9C /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Japanese; path = Japanese.lproj/Helpbook; sourceTree = "<group>"; };
 		173C20071682668E00D0A92E /* LutrinWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LutrinWindowController.h; sourceTree = "<group>"; };
 		173C20081682668E00D0A92E /* LutrinWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LutrinWindowController.m; sourceTree = "<group>"; };
+		17698531195FA1D0007C7964 /* MyNSApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNSApplication.h; sourceTree = "<group>"; };
+		17698532195FA1D0007C7964 /* MyNSApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyNSApplication.m; sourceTree = "<group>"; };
 		1797243A16924E8300FC9D1E /* English */ = {isa = PBXFileReference; lastKnownFileType = folder; name = English; path = English.lproj/Helpbook; sourceTree = "<group>"; };
 		17A2B60816902D1600A420B4 /* LutrinConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LutrinConstants.h; sourceTree = "<group>"; };
 		17A2B60916903EA100A420B4 /* transparent1x1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = transparent1x1.png; sourceTree = "<group>"; };
@@ -110,6 +114,8 @@
 				17B8A284168FF74400100F16 /* DoubleViewController.h */,
 				17B8A285168FF74400100F16 /* DoubleViewController.m */,
 				17A2B60816902D1600A420B4 /* LutrinConstants.h */,
+				17698531195FA1D0007C7964 /* MyNSApplication.h */,
+				17698532195FA1D0007C7964 /* MyNSApplication.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -247,7 +253,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0450;
+				LastUpgradeCheck = 0510;
 				TargetAttributes = {
 					8D1107260486CEB800E47090 = {
 						DevelopmentTeam = T98QX37J37;
@@ -321,6 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				17FCF4C516825A5C00873D37 /* LutrinTests.m in Sources */,
+				17698534195FA1D0007C7964 /* MyNSApplication.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +342,7 @@
 				17F592471682A46C00822D34 /* ScrollViewWorkaround.m in Sources */,
 				17FC3AB0168FCD4A003BE5DA /* SingleViewController.m in Sources */,
 				17B8A287168FF74400100F16 /* DoubleViewController.m in Sources */,
+				17698533195FA1D0007C7964 /* MyNSApplication.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,6 +381,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -401,6 +410,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
@@ -432,6 +442,7 @@
 				CODE_SIGN_ENTITLEMENTS = Lutrin.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -455,6 +466,7 @@
 				CODE_SIGN_ENTITLEMENTS = Lutrin.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -471,7 +483,6 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CODE_SIGN_IDENTITY = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -486,7 +497,6 @@
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CODE_SIGN_IDENTITY = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
