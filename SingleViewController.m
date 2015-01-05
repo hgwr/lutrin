@@ -130,7 +130,8 @@
     
     if (image) {
         imageView_.autoresizes = YES;
-        [imageView_ setImage:image imageProperties:*imagePropRef_];
+        // [imageView_ setImage:image imageProperties:*imagePropRef_];
+        [imageView_ setImageWithURL:url_];
         NSNumber *pixelHeight = [*imagePropRef_ valueForKey:@"PixelHeight"];
         NSNumber *pixelWidth = [*imagePropRef_ valueForKey:@"PixelWidth"];
         if (imageView_.frame.size.height < pixelHeight.floatValue ||
