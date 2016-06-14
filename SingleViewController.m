@@ -306,13 +306,28 @@ includingPropertiesForKeys:[NSArray arrayWithObjects:NSURLIsDirectoryKey,nil]
 
 - (void)unzipFile:(NSString *)path
 {
+    NSLog(@"self.cacheDir = %@", self.cacheDir);
+    
+    // find {self.cacheDir} -type d -exec chmod 755 {} \;
+    NSTask *findAndChmod = [[NSTask alloc] init];
+    [findAndChmod setLaunchPath:@"/usr/bin/find"];
+    [findAndChmod setCurrentDirectoryPath:[self.cacheDir path]];
+    [findAndChmod setArguments:[NSArray arrayWithObjects:[self.cacheDir path], @"-type", @"d", @"-exec", @"chmod", @"755", @"{}", @";", nil]];
+    [findAndChmod launch];
+    [findAndChmod waitUntilExit];
+    int findAndChmodStatus = [findAndChmod terminationStatus];
+    [findAndChmod release];
+    if (findAndChmodStatus != 0)
+        NSLog(@"find %@ -type d -exec chmod 755 {} ; failed.", [self.cacheDir path]);
+    
+    // rm -rf {self.cacheDir}
     NSFileManager *fm = [NSFileManager defaultManager];
     [fm removeItemAtURL:self.cacheDir error:nil];
     [fm createDirectoryAtPath:[self.cacheDir path] withIntermediateDirectories:YES
                    attributes:nil error:nil];
     
+    // unzip
     NSArray *arguments = [NSArray arrayWithObject:path];
-    
     NSTask *unzipTask = [[NSTask alloc] init];
     [unzipTask setLaunchPath:@"/usr/bin/unzip"];
     [unzipTask setCurrentDirectoryPath:[self.cacheDir path]];
@@ -321,7 +336,6 @@ includingPropertiesForKeys:[NSArray arrayWithObjects:NSURLIsDirectoryKey,nil]
     [unzipTask waitUntilExit];
     int status = [unzipTask terminationStatus];
     [unzipTask release];
-    
     if (status != 0)
         NSLog(@"unzip %@ failed.", path);
 }
